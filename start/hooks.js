@@ -1,5 +1,18 @@
 const { hooks } = require('@adonisjs/ignitor');
 const { validarCPF, validarCNPJ } = use('App/Utils/Validations');
+const pg = require('pg');
+
+/**
+ * Método responsável por configurar tipos de dado no javascript
+ * que são servidos pelo postgresql
+ */
+const pgTypes = () => {
+  // bigint
+  pg.types.setTypeParser(20, value => parseInt(value));
+
+  // numeric
+  pg.types.setTypeParser(1700, value => parseFloat(value));
+};
 
 hooks.before.providersRegistered(() => {});
 
@@ -8,6 +21,7 @@ hooks.after.providersRegistered(() => {});
 hooks.before.providersBooted(() => {});
 
 hooks.after.providersBooted(() => {
+  pgTypes();
   validatorExtends();
 });
 

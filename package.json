@@ -28,7 +28,8 @@
     "@adonisjs/mail": "^3.0.9",
     "@adonisjs/validator": "^5.0.6",
     "adonis-acl": "^1.1.1",
-    "adonis-lucid-filter": "^1.0.4"
+    "adonis-lucid-filter": "^1.0.4",
+    "pg": "^7.11.0"
   },
   "devDependencies": {
     "eslint": "^6.0.1"

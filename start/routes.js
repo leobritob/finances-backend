@@ -20,8 +20,18 @@ Route.get('/', () => ({ greeting: 'Hello world in JSON' }));
 
 Route.group(function() {
   Route.get('/', () => ({ hello: 'api' }));
+
+  // Authentication
+  Route.post('auth/token', 'Api/AuthController.token');
 }).prefix('api');
 
 Route.group(function() {
   Route.get('/', () => ({ hello: 'api/v1' }));
+
+  // Users
+  Route.get('users', 'Api/V1/UserController.index');
+  Route.post('users', 'Api/V1/UserController.store');
+  Route.get('users/:id', 'Api/V1/UserController.show');
+  Route.put('users/:id', 'Api/V1/UserController.update');
+  Route.delete('users/:id', 'Api/V1/UserController.destroy');
 }).prefix('api/v1');

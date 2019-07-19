@@ -1,0 +1,51 @@
+version: "3.3"
+
+services:
+  finances_database:
+    image: postgres:11-alpine
+    container_name: finances_database
+    environment:
+      - POSTGRES_USER=finances_root
+      - POSTGRES_PASSWORD=123456789
+      - POSTGRES_DB=finances
+    volumes:
+      - finances_database:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - sac_app_network
+
+  sac_app_backend:
+    build: .
+    container_name: sac_app_backend
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - finances_database
+    volumes:
+      - ./sac_app:/var/www/sac_app
+    ports:
+      - 3333:3333
+    networks:
+      - sac_app_network
+    links:
+      - finances_database:finances_database
+
+  sac_app_webserver:
+    image: nginx:latest
+    # build: ./nginx
+    container_name: sac_app_webserver
+    depends_on:
+      - sac_app_backend
+    ports:
+      - 80:80
+    networks:
+      - sac_app_network
+
+networks:
+  sac_app_network:
+    driver: bridge
+
+volumes:
+  finances_database:
+    driver: local
