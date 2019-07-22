@@ -16,18 +16,14 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route');
 
-Route.get('/', () => ({ greeting: 'Hello world in JSON' }));
+Route.get('/', () => ({ status: 'OK' }));
 
 Route.group(function() {
-  Route.get('/', () => ({ hello: 'api' }));
-
   // Authentication
   Route.post('auth/token', 'Api/AuthController.token');
 }).prefix('api');
 
 Route.group(function() {
-  Route.get('/', () => ({ hello: 'api/v1' }));
-
   // Users
   Route.get('users', 'Api/V1/UserController.index');
   Route.post('users', 'Api/V1/UserController.store');
@@ -59,5 +55,27 @@ Route.group(function() {
   Route.delete(
     'billing-cycles-types/:id',
     'Api/V1/BillingCyclesTypeController.destroy'
+  );
+
+  // BillingCyclesTypes
+  Route.get(
+    'billing-cycles-categories',
+    'Api/V1/BillingCyclesCategoryController.index'
+  );
+  Route.post(
+    'billing-cycles-categories',
+    'Api/V1/BillingCyclesCategoryController.store'
+  );
+  Route.get(
+    'billing-cycles-categories/:id',
+    'Api/V1/BillingCyclesCategoryController.show'
+  );
+  Route.put(
+    'billing-cycles-categories/:id',
+    'Api/V1/BillingCyclesCategoryController.update'
+  );
+  Route.delete(
+    'billing-cycles-categories/:id',
+    'Api/V1/BillingCyclesCategoryController.destroy'
   );
 }).prefix('api/v1');

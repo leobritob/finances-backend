@@ -15,6 +15,14 @@ class BillingCyclesSchema extends Schema {
         .onDelete('CASCADE')
         .notNullable();
       table
+        .integer('billing_cycles_category_id')
+        .unsigned()
+        .references('id')
+        .inTable('billing_cycles_categories')
+        .index()
+        .onDelete('CASCADE')
+        .notNullable();
+      table
         .float('value')
         .notNullable()
         .defaultTo(0);

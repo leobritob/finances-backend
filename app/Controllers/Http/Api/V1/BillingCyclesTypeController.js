@@ -15,7 +15,9 @@ class BillingCyclesTypeController {
     return BillingCyclesType.create(request.only(['name', 'description']));
   }
 
-  async show({ params, request, response, view }) {}
+  async show({ params: { id } }) {
+    return BillingCyclesType.findOrFail(id);
+  }
 
   async update({ params, request, response }) {}
 

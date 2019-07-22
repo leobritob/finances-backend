@@ -12,7 +12,7 @@
     "adonisjs",
     "adonis-app"
   ],
-  "author": "",
+  "author": "Leonardo Brito Bittencourt",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {

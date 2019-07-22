@@ -1,24 +1,22 @@
 'use strict';
 
-const BillingCycle = use('BillingCycleModel');
+const BillingCyclesCategory = use('BillingCyclesCategoryModel');
 
-class BillingCycleController {
+class BillingCyclesCategoryController {
   async index({ request }) {
     const query = request.all();
     const page = query.page || 1;
-    return BillingCycle.query()
+    return BillingCyclesCategory.query()
       .filter(query)
       .paginate(page, 20);
   }
 
   async store({ request }) {
-    return BillingCycle.create(
-      request.only(['billing_cycles_type_id', 'value', 'description'])
-    );
+    return BillingCyclesCategory.create(request.only(['name']));
   }
 
   async show({ params: { id } }) {
-    return BillingCycle.findOrFail(id);
+    return BillingCyclesCategory.findOrFail(id);
   }
 
   async update({ params, request, response }) {}
@@ -26,4 +24,4 @@ class BillingCycleController {
   async destroy({ params, request, response }) {}
 }
 
-module.exports = BillingCycleController;
+module.exports = BillingCyclesCategoryController;

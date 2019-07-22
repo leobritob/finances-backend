@@ -55,8 +55,9 @@ const aliases = {
 
   // Models
   UserModel: 'App/Models/User',
-  BillingCyclesModel: 'App/Models/BillingCycle',
-  BillingCyclesTypeModel: 'App/Models/BillingCyclesType'
+  BillingCycleModel: 'App/Models/BillingCycle',
+  BillingCyclesTypeModel: 'App/Models/BillingCyclesType',
+  BillingCyclesCategoryModel: 'App/Models/BillingCyclesCategory'
 };
 
 /*
