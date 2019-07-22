@@ -5,8 +5,10 @@ const User = use('UserModel');
 class UserController {
   async index({ request }) {
     const query = request.all();
-    let page = query.page || 1;
-    return User.query().paginate(page, 20);
+    const page = query.page || 1;
+    return User.query()
+      .filter(query)
+      .paginate(page, 20);
   }
 
   async store({ request }) {

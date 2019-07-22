@@ -1,57 +1,25 @@
-'use strict'
+'use strict';
 
-/**
- * Resourceful controller for interacting with billingcyclestypes
- */
+const BillingCyclesType = use('BillingCyclesTypeModel');
+
 class BillingCyclesTypeController {
-  /**
-   * Show a list of all billingcyclestypes.
-   * GET billingcyclestypes
-   */
-  async index ({ request, response, view }) {
+  async index({ request }) {
+    const query = request.all();
+    const page = query.page || 1;
+    return BillingCyclesType.query()
+      .filter(query)
+      .paginate(page, 20);
   }
 
-  /**
-   * Render a form to be used for creating a new billingcyclestype.
-   * GET billingcyclestypes/create
-   */
-  async create ({ request, response, view }) {
+  async store({ request }) {
+    return BillingCyclesType.create(request.only(['name', 'description']));
   }
 
-  /**
-   * Create/save a new billingcyclestype.
-   * POST billingcyclestypes
-   */
-  async store ({ request, response }) {
-  }
+  async show({ params, request, response, view }) {}
 
-  /**
-   * Display a single billingcyclestype.
-   * GET billingcyclestypes/:id
-   */
-  async show ({ params, request, response, view }) {
-  }
+  async update({ params, request, response }) {}
 
-  /**
-   * Render a form to update an existing billingcyclestype.
-   * GET billingcyclestypes/:id/edit
-   */
-  async edit ({ params, request, response, view }) {
-  }
-
-  /**
-   * Update billingcyclestype details.
-   * PUT or PATCH billingcyclestypes/:id
-   */
-  async update ({ params, request, response }) {
-  }
-
-  /**
-   * Delete a billingcyclestype with id.
-   * DELETE billingcyclestypes/:id
-   */
-  async destroy ({ params, request, response }) {
-  }
+  async destroy({ params, request, response }) {}
 }
 
-module.exports = BillingCyclesTypeController
+module.exports = BillingCyclesTypeController;

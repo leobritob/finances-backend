@@ -54,7 +54,9 @@ const aliases = {
   Permission: 'Adonis/Acl/Permission',
 
   // Models
-  UserModel: 'App/Models/User'
+  UserModel: 'App/Models/User',
+  BillingCyclesModel: 'App/Models/BillingCycle',
+  BillingCyclesTypeModel: 'App/Models/BillingCyclesType'
 };
 
 /*

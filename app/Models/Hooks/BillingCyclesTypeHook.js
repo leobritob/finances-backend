@@ -1,6 +1,25 @@
-'use strict'
+'use strict';
 
-const BillingCyclesTypeHook = exports = module.exports = {}
+const { validateAll } = use('Validator');
+const ValidationException = use('App/Exceptions/ValidationException');
 
-BillingCyclesTypeHook.validate = async (modelInstance) => {
-}
+const BillingCyclesTypeHook = (exports = module.exports = {});
+
+BillingCyclesTypeHook.validate = async modelInstance => {
+  const rules = {
+    name: 'required',
+    description: 'required'
+  };
+
+  const messages = {
+    'name.required': 'Por favor, informe o nome.',
+    'description.required': 'Por favor, informe a descrição.'
+  };
+
+  const validation = await validateAll(
+    modelInstance.$attributes,
+    rules,
+    messages
+  );
+  if (validation.fails()) throw new ValidationException(validation.messages());
+};

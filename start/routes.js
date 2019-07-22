@@ -34,4 +34,30 @@ Route.group(function() {
   Route.get('users/:id', 'Api/V1/UserController.show');
   Route.put('users/:id', 'Api/V1/UserController.update');
   Route.delete('users/:id', 'Api/V1/UserController.destroy');
+
+  // BillingCycles
+  Route.get('billing-cycles', 'Api/V1/BillingCycleController.index');
+  Route.post('billing-cycles', 'Api/V1/BillingCycleController.store');
+  Route.get('billing-cycles/:id', 'Api/V1/BillingCycleController.show');
+  Route.put('billing-cycles/:id', 'Api/V1/BillingCycleController.update');
+  Route.delete('billing-cycles/:id', 'Api/V1/BillingCycleController.destroy');
+
+  // BillingCyclesTypes
+  Route.get('billing-cycles-types', 'Api/V1/BillingCyclesTypeController.index');
+  Route.post(
+    'billing-cycles-types',
+    'Api/V1/BillingCyclesTypeController.store'
+  );
+  Route.get(
+    'billing-cycles-types/:id',
+    'Api/V1/BillingCyclesTypeController.show'
+  );
+  Route.put(
+    'billing-cycles-types/:id',
+    'Api/V1/BillingCyclesTypeController.update'
+  );
+  Route.delete(
+    'billing-cycles-types/:id',
+    'Api/V1/BillingCyclesTypeController.destroy'
+  );
 }).prefix('api/v1');

@@ -1,57 +1,27 @@
-'use strict'
+'use strict';
 
-/**
- * Resourceful controller for interacting with billingcycles
- */
+const BillingCycles = use('BillingCyclesModel');
+
 class BillingCycleController {
-  /**
-   * Show a list of all billingcycles.
-   * GET billingcycles
-   */
-  async index ({ request, response, view }) {
+  async index({ request }) {
+    const query = request.all();
+    const page = query.page || 1;
+    return BillingCycles.query()
+      .filter(query)
+      .paginate(page, 20);
   }
 
-  /**
-   * Render a form to be used for creating a new billingcycle.
-   * GET billingcycles/create
-   */
-  async create ({ request, response, view }) {
+  async store({ request }) {
+    return BillingCycles.create(
+      request.only(['billing_cycles_type_id', 'value', 'description'])
+    );
   }
 
-  /**
-   * Create/save a new billingcycle.
-   * POST billingcycles
-   */
-  async store ({ request, response }) {
-  }
+  async show({ params, request, response }) {}
 
-  /**
-   * Display a single billingcycle.
-   * GET billingcycles/:id
-   */
-  async show ({ params, request, response, view }) {
-  }
+  async update({ params, request, response }) {}
 
-  /**
-   * Render a form to update an existing billingcycle.
-   * GET billingcycles/:id/edit
-   */
-  async edit ({ params, request, response, view }) {
-  }
-
-  /**
-   * Update billingcycle details.
-   * PUT or PATCH billingcycles/:id
-   */
-  async update ({ params, request, response }) {
-  }
-
-  /**
-   * Delete a billingcycle with id.
-   * DELETE billingcycles/:id
-   */
-  async destroy ({ params, request, response }) {
-  }
+  async destroy({ params, request, response }) {}
 }
 
-module.exports = BillingCycleController
+module.exports = BillingCycleController;

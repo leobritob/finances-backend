@@ -6,7 +6,14 @@ class BillingCyclesSchema extends Schema {
   up() {
     this.create('billing_cycles', table => {
       table.increments();
-      table.integer('type').notNullable();
+      table
+        .integer('billing_cycles_type_id')
+        .unsigned()
+        .references('id')
+        .inTable('billing_cycles_types')
+        .index()
+        .onDelete('CASCADE')
+        .notNullable();
       table
         .float('value')
         .notNullable()
