@@ -8,8 +8,12 @@ const BillingCyclesCategoriesFilter = use(
 class BillingCyclesCategory extends Model {
   static boot() {
     super.boot();
-    this.addHook('beforeSave', ['BillingCyclesCategorieHook.validate']);
+    this.addHook('beforeSave', ['BillingCyclesCategoryHook.validate']);
     this.addTrait('@provider:Filterable', BillingCyclesCategoriesFilter);
+  }
+
+  static castDates(field, value) {
+    return value.toISOString();
   }
 }
 

@@ -13,7 +13,12 @@ class BillingCycleController {
 
   async store({ request }) {
     return BillingCycle.create(
-      request.only(['billing_cycles_type_id', 'value', 'description'])
+      request.only([
+        'billing_cycles_type_id',
+        'billing_cycles_category_id',
+        'value',
+        'description'
+      ])
     );
   }
 
@@ -21,9 +26,29 @@ class BillingCycleController {
     return BillingCycle.findOrFail(id);
   }
 
-  async update({ params, request, response }) {}
+  async update({ params: { id }, request, response }) {
+    const billingCycle = await BillingCycle.findOrFail(id);
+    billingCycle.merge(request.all());
 
-  async destroy({ params, request, response }) {}
+    const isSave = billingCycle.save();
+    if (isSave) return billingCycle;
+
+    return response.status(400).send({
+      message:
+        'Faturamento não foi salvo porque não houve alteração no cadastro.'
+    });
+  }
+
+  async destroy({ params: { id }, response }) {
+    const billingCycle = await BillingCycle.findOrFail(id);
+
+    const isDelete = billingCycle.delete();
+    if (isDelete) return response.status(204).send();
+
+    return response
+      .status(400)
+      .send({ message: 'Não foi possível apagar o faturamento.' });
+  }
 }
 
 module.exports = BillingCycleController;

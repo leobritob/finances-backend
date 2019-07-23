@@ -11,6 +11,10 @@ class BillingCyclesType extends Model {
     this.addHook('beforeSave', ['BillingCyclesTypeHook.validate']);
     this.addTrait('@provider:Filterable', BillingCyclesTypesFilter);
   }
+
+  static castDates(field, value) {
+    return value.toISOString();
+  }
 }
 
 module.exports = BillingCyclesType;
