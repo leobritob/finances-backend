@@ -9,13 +9,13 @@ const UserHook = (exports = module.exports = {});
 UserHook.validate = async modelInstance => {
   let uniqueWhenUpdate = '';
   if (modelInstance.$attributes.id) {
-    uniqueWhenUpdate = `,id!=${modelInstance.$attributes.id}`;
+    uniqueWhenUpdate = `,id,${modelInstance.$attributes.id}`;
   }
 
   const rules = {
     first_name: 'required|min:2|max:255',
     last_name: 'required|min:2|max:255',
-    email: `required|email|uniqueData:users,email,is_active=true${uniqueWhenUpdate}`,
+    email: `required|email|unique:users,email${uniqueWhenUpdate}`,
     password: 'required|min:6'
   };
 
@@ -28,7 +28,7 @@ UserHook.validate = async modelInstance => {
     'last_name.max': 'Você atingiu limite máximo de 255 caracteres.',
     'email.required': 'Por favor, informe seu e-mail.',
     'email.email': 'Por favor, informe um e-mail válido',
-    'email.uniqueData': 'Este e-mail já está em uso.',
+    'email.unique': 'Este e-mail já está em uso.',
     'password.required': 'Por favor, informe sua senha.',
     'password.min': 'Sua senha precisa ter no mínimo 6 caracteres.'
   };

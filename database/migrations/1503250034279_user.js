@@ -14,10 +14,6 @@ class UserSchema extends Schema {
         .notNullable()
         .unique();
       table.string('password').notNullable();
-      table
-        .boolean('is_active')
-        .nullable()
-        .defaultTo(true);
       table.timestamps();
     });
   }

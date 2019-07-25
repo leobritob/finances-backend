@@ -6,7 +6,7 @@ const Hash = use('Hash');
 class AuthController {
   async token({ request, response, auth }) {
     const { email, password } = request.all();
-    const user = await User.findBy({ email, is_active: true });
+    const user = await User.findBy({ email });
     if (user) {
       const isAuth = await Hash.verify(password, user.password);
       if (isAuth) {

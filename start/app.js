@@ -54,6 +54,7 @@ const aliases = {
   Permission: 'Adonis/Acl/Permission',
 
   // Models
+  TokenModel: 'App/Models/Token',
   UserModel: 'App/Models/User',
   BillingCycleModel: 'App/Models/BillingCycle',
   BillingCyclesTypeModel: 'App/Models/BillingCyclesType',

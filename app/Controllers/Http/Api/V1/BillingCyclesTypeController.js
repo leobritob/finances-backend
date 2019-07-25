@@ -21,7 +21,7 @@ class BillingCyclesTypeController {
 
   async update({ params: { id }, request, response }) {
     const billingCycleCategory = await BillingCyclesType.findOrFail(id);
-    billingCycleCategory.merge(request.all());
+    billingCycleCategory.merge(request.only(['name', 'description']));
 
     const isSave = billingCycleCategory.save();
     if (isSave) return billingCycleCategory;
