@@ -59,6 +59,10 @@ Route.group(function() {
     'billing-cycles-reports',
     'Api/V1/BillingCycleController.reports'
   ).middleware(['auth']);
+  Route.get(
+    'billing-cycles-general-reports',
+    'Api/V1/BillingCycleController.generalReports'
+  ).middleware(['auth']);
 
   // BillingCyclesTypes
   Route.get(

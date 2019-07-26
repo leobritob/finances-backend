@@ -95,6 +95,8 @@ class BillingCycleController {
 
     return result.rows[0];
   }
+
+  async generalReports({ request, response }) {}
 }
 
 module.exports = BillingCycleController;
