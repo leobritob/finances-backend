@@ -26,7 +26,7 @@ Route.group(function() {
 Route.group(function() {
   // Users
   Route.get('users', 'Api/V1/UserController.index').middleware(['auth']);
-  Route.post('users', 'Api/V1/UserController.store').middleware(['auth']);
+  Route.post('users', 'Api/V1/UserController.store');
   Route.get('users/:id', 'Api/V1/UserController.show').middleware(['auth']);
   Route.put('users/:id', 'Api/V1/UserController.update').middleware(['auth']);
   Route.delete('users/:id', 'Api/V1/UserController.destroy').middleware([
@@ -52,6 +52,12 @@ Route.group(function() {
   Route.delete(
     'billing-cycles/:id',
     'Api/V1/BillingCycleController.destroy'
+  ).middleware(['auth']);
+
+  // BillingCycles Reports
+  Route.get(
+    'billing-cycles-reports',
+    'Api/V1/BillingCycleController.reports'
   ).middleware(['auth']);
 
   // BillingCyclesTypes

@@ -8,6 +8,7 @@ class UserController {
     const page = query.page || 1;
     return User.query()
       .filter(query)
+      .orderBy('id', 'asc')
       .paginate(page, 20);
   }
 

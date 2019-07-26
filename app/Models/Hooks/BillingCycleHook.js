@@ -9,6 +9,7 @@ BillingCycleHook.validate = async modelInstance => {
   const rules = {
     billing_cycles_category_id: 'required|exists:billing_cycles_categories,id',
     value: 'required|number',
+    date: 'required|date',
     description: 'required'
   };
 
@@ -19,6 +20,8 @@ BillingCycleHook.validate = async modelInstance => {
       'Por favor, informe uma categoria válida.',
     'value.required': 'Por favor, informe o valor.',
     'value.number': 'Por favor, o valor precisa ser um valor decimal',
+    'date.required': 'Por favor, informe a data.',
+    'date.date': 'Por favor, informe a data válida.',
     'description.required': 'Por favor, informe a descrição.'
   };
 

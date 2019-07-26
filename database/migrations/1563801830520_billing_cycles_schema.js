@@ -4,6 +4,8 @@ const Schema = use('Schema');
 
 class BillingCyclesSchema extends Schema {
   up() {
+    const dateNow = new Date();
+
     this.create('billing_cycles', table => {
       table.increments();
       table
@@ -18,6 +20,13 @@ class BillingCyclesSchema extends Schema {
         .float('value')
         .notNullable()
         .defaultTo(0);
+      table
+        .date('date', { useTz: false })
+        .nullable()
+        .defaultTo(
+          `${dateNow.getFullYear()}-${dateNow.getMonth() +
+            1}-${dateNow.getDate()}`
+        );
       table.string('description').nullable();
       table.timestamps();
     });

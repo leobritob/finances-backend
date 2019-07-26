@@ -29,6 +29,7 @@
     "@adonisjs/validator": "^5.0.6",
     "adonis-acl": "^1.1.1",
     "adonis-lucid-filter": "^1.0.4",
+    "date-fns": "^2.0.0-beta.3",
     "pg": "^7.11.0"
   },
   "devDependencies": {

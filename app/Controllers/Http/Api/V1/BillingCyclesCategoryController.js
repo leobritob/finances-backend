@@ -8,11 +8,14 @@ class BillingCyclesCategoryController {
     const page = query.page || 1;
     return BillingCyclesCategory.query()
       .filter(query)
+      .orderBy('id', 'asc')
       .paginate(page, 20);
   }
 
   async store({ request }) {
-    return BillingCyclesCategory.create(request.only(['name']));
+    return BillingCyclesCategory.create(
+      request.only(['billing_cycles_type_id', 'name'])
+    );
   }
 
   async show({ params: { id } }) {
@@ -21,7 +24,9 @@ class BillingCyclesCategoryController {
 
   async update({ params: { id }, request, response }) {
     const billingCycleCategory = await BillingCyclesCategory.findOrFail(id);
-    billingCycleCategory.merge(request.only(['name']));
+    billingCycleCategory.merge(
+      request.only(['billing_cycles_type_id', 'name'])
+    );
 
     const isSave = billingCycleCategory.save();
     if (isSave) return billingCycleCategory;
