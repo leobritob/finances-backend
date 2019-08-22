@@ -5,6 +5,8 @@
   "description": "Adonisjs boilerplate for API server with pre-configured JWT",
   "main": "index.js",
   "scripts": {
+    "make-env-file": "printenv > .env",
+    "migration-run": "node node_modules/@adonisjs/cli/index.js migration:run --force",
     "start": "node server.js",
     "test": "node ace test"
   },
