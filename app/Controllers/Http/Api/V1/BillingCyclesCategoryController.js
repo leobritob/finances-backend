@@ -8,6 +8,7 @@ class BillingCyclesCategoryController {
     const page = query.page || 1;
     return BillingCyclesCategory.query()
       .filter(query)
+      .with('billingCyclesType')
       .orderBy('id', 'asc')
       .paginate(page, 20);
   }

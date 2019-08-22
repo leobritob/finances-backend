@@ -12,6 +12,14 @@ class BillingCyclesTypesFilter extends ModelFilter {
     description = description.toLowerCase();
     return this.whereRaw('(lower(description) LIKE ?)', [`%${description}%`]);
   }
+
+  search(search) {
+    search = search.toLowerCase();
+    return this.whereRaw('(lower(name) LIKE ? OR lower(description) LIKE ?)', [
+      `%${search}%`,
+      `%${search}%`
+    ]);
+  }
 }
 
 module.exports = BillingCyclesTypesFilter;
