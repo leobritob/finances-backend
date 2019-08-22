@@ -38,6 +38,7 @@ UserHook.validate = async modelInstance => {
     rules,
     messages
   );
+
   if (validation.fails()) throw new ValidationException(validation.messages());
 };
 
