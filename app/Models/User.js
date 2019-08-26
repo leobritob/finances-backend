@@ -1,9 +1,6 @@
 'use strict';
 
-/** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model');
-
-/** @type {import('@adonisjs/framework/src/Hash')} */
 const UserFilter = use('App/ModelFilters/UserFilter');
 
 class User extends Model {
@@ -14,10 +11,7 @@ class User extends Model {
   }
 
   static get traits() {
-    return [
-      '@provider:Adonis/Acl/HasRole',
-      '@provider:Adonis/Acl/HasPermission'
-    ];
+    return ['@provider:Adonis/Acl/HasRole', '@provider:Adonis/Acl/HasPermission'];
   }
 
   static get hidden() {
@@ -36,16 +30,6 @@ class User extends Model {
     return `${first_name} ${last_name}`;
   }
 
-  /**
-   * A relationship on tokens is required for auth to
-   * work. Since features like `refreshTokens` or
-   * `rememberToken` will be saved inside the
-   * tokens table.
-   *
-   * @method tokens
-   *
-   * @return {Object}
-   */
   tokens() {
     return this.hasMany('TokenModel');
   }
