@@ -29,82 +29,44 @@ Route.group(function() {
   Route.post('users', 'Api/V1/UserController.store');
   Route.get('users/:id', 'Api/V1/UserController.show').middleware(['auth']);
   Route.put('users/:id', 'Api/V1/UserController.update').middleware(['auth']);
-  Route.delete('users/:id', 'Api/V1/UserController.destroy').middleware([
-    'auth'
-  ]);
+  Route.delete('users/:id', 'Api/V1/UserController.destroy').middleware(['auth']);
 
   // BillingCycles
-  Route.get('billing-cycles', 'Api/V1/BillingCycleController.index').middleware(
-    ['auth']
-  );
-  Route.post(
-    'billing-cycles',
-    'Api/V1/BillingCycleController.store'
-  ).middleware(['auth']);
-  Route.get(
-    'billing-cycles/:id',
-    'Api/V1/BillingCycleController.show'
-  ).middleware(['auth']);
-  Route.put(
-    'billing-cycles/:id',
-    'Api/V1/BillingCycleController.update'
-  ).middleware(['auth']);
-  Route.delete(
-    'billing-cycles/:id',
-    'Api/V1/BillingCycleController.destroy'
-  ).middleware(['auth']);
+  Route.get('billing-cycles', 'Api/V1/BillingCycleController.index').middleware(['auth']);
+  Route.post('billing-cycles', 'Api/V1/BillingCycleController.store').middleware(['auth']);
+  Route.get('billing-cycles/:id', 'Api/V1/BillingCycleController.show').middleware(['auth']);
+  Route.put('billing-cycles/:id', 'Api/V1/BillingCycleController.update').middleware(['auth']);
+  Route.delete('billing-cycles/:id', 'Api/V1/BillingCycleController.destroy').middleware(['auth']);
 
   // BillingCycles Reports
-  Route.get(
-    'billing-cycles-reports',
-    'Api/V1/BillingCycleController.reports'
-  ).middleware(['auth']);
-  Route.get(
-    'billing-cycles-general-reports',
-    'Api/V1/BillingCycleController.generalReports'
-  ).middleware(['auth']);
+  Route.get('billing-cycles-reports', 'Api/V1/BillingCycleController.reports').middleware(['auth']);
+  Route.get('billing-cycles-general-reports', 'Api/V1/BillingCycleController.generalReports').middleware(['auth']);
 
   // BillingCyclesTypes
-  Route.get(
-    'billing-cycles-types',
-    'Api/V1/BillingCyclesTypeController.index'
-  ).middleware(['auth']);
-  Route.post(
-    'billing-cycles-types',
-    'Api/V1/BillingCyclesTypeController.store'
-  ).middleware(['auth']);
-  Route.get(
-    'billing-cycles-types/:id',
-    'Api/V1/BillingCyclesTypeController.show'
-  ).middleware(['auth']);
-  Route.put(
-    'billing-cycles-types/:id',
-    'Api/V1/BillingCyclesTypeController.update'
-  ).middleware(['auth']);
-  Route.delete(
-    'billing-cycles-types/:id',
-    'Api/V1/BillingCyclesTypeController.destroy'
-  ).middleware(['auth']);
+  Route.get('billing-cycles-types', 'Api/V1/BillingCyclesTypeController.index').middleware(['auth']);
+  Route.post('billing-cycles-types', 'Api/V1/BillingCyclesTypeController.store').middleware(['auth']);
+  Route.get('billing-cycles-types/:id', 'Api/V1/BillingCyclesTypeController.show').middleware(['auth']);
+  Route.put('billing-cycles-types/:id', 'Api/V1/BillingCyclesTypeController.update').middleware(['auth']);
+  Route.delete('billing-cycles-types/:id', 'Api/V1/BillingCyclesTypeController.destroy').middleware(['auth']);
 
   // BillingCyclesTypes
-  Route.get(
-    'billing-cycles-categories',
-    'Api/V1/BillingCyclesCategoryController.index'
-  ).middleware(['auth']);
-  Route.post(
-    'billing-cycles-categories',
-    'Api/V1/BillingCyclesCategoryController.store'
-  ).middleware(['auth']);
-  Route.get(
-    'billing-cycles-categories/:id',
-    'Api/V1/BillingCyclesCategoryController.show'
-  ).middleware(['auth']);
-  Route.put(
-    'billing-cycles-categories/:id',
-    'Api/V1/BillingCyclesCategoryController.update'
-  ).middleware(['auth']);
-  Route.delete(
-    'billing-cycles-categories/:id',
-    'Api/V1/BillingCyclesCategoryController.destroy'
-  ).middleware(['auth']);
+  Route.get('billing-cycles-categories', 'Api/V1/BillingCyclesCategoryController.index').middleware(['auth']);
+  Route.post('billing-cycles-categories', 'Api/V1/BillingCyclesCategoryController.store').middleware(['auth']);
+  Route.get('billing-cycles-categories/:id', 'Api/V1/BillingCyclesCategoryController.show').middleware(['auth']);
+  Route.put('billing-cycles-categories/:id', 'Api/V1/BillingCyclesCategoryController.update').middleware(['auth']);
+  Route.delete('billing-cycles-categories/:id', 'Api/V1/BillingCyclesCategoryController.destroy').middleware(['auth']);
+
+  // Investments
+  Route.get('investments', 'Api/V1/InvestmentController.index').middleware(['auth']);
+  Route.post('investments', 'Api/V1/InvestmentController.store').middleware(['auth']);
+  Route.get('investments/:id', 'Api/V1/InvestmentController.show').middleware(['auth']);
+  Route.put('investments/:id', 'Api/V1/InvestmentController.update').middleware(['auth']);
+  Route.delete('investments/:id', 'Api/V1/InvestmentController.destroy').middleware(['auth']);
+
+  // Investments Types
+  Route.get('investments-types', 'Api/V1/InvestmentsTypeController.index').middleware(['auth']);
+  Route.post('investments-types', 'Api/V1/InvestmentsTypeController.store').middleware(['auth']);
+  Route.get('investments-types/:id', 'Api/V1/InvestmentsTypeController.show').middleware(['auth']);
+  Route.put('investments-types/:id', 'Api/V1/InvestmentsTypeController.update').middleware(['auth']);
+  Route.delete('investments-types/:id', 'Api/V1/InvestmentsTypeController.destroy').middleware(['auth']);
 }).prefix('api/v1');

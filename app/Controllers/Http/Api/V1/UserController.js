@@ -13,9 +13,7 @@ class UserController {
   }
 
   async store({ request }) {
-    return User.create(
-      request.only(['first_name', 'last_name', 'email', 'password'])
-    );
+    return User.create(request.only(['first_name', 'last_name', 'email', 'password']));
   }
 
   async show({ params: { id } }) {
@@ -28,8 +26,7 @@ class UserController {
     const save = await user.save();
     if (save) return user;
     return response.status(400).send({
-      message:
-        'Não foi atualizado porque não foi identificado mudanças no cadastro.'
+      message: 'Não foi atualizado porque não foi identificado mudanças no cadastro.'
     });
   }
 

@@ -1,9 +1,7 @@
 'use strict';
 
 const Model = use('Model');
-const BillingCyclesTypesFilter = use(
-  'App/ModelFilters/BillingCyclesTypesFilter'
-);
+const BillingCyclesTypesFilter = use('App/ModelFilters/BillingCyclesTypesFilter');
 
 class BillingCyclesType extends Model {
   static boot() {

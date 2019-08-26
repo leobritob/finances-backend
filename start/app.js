@@ -32,10 +32,7 @@ const providers = [
 | Providers for migrations, tests etc.
 |
 */
-const aceProviders = [
-  '@adonisjs/lucid/providers/MigrationsProvider',
-  'adonis-acl/providers/CommandsProvider'
-];
+const aceProviders = ['@adonisjs/lucid/providers/MigrationsProvider', 'adonis-acl/providers/CommandsProvider'];
 
 /*
 |--------------------------------------------------------------------------
@@ -58,7 +55,9 @@ const aliases = {
   UserModel: 'App/Models/User',
   BillingCycleModel: 'App/Models/BillingCycle',
   BillingCyclesTypeModel: 'App/Models/BillingCyclesType',
-  BillingCyclesCategoryModel: 'App/Models/BillingCyclesCategory'
+  BillingCyclesCategoryModel: 'App/Models/BillingCyclesCategory',
+  InvestmentModel: 'App/Models/Investment',
+  InvestmentsTypeModel: 'App/Models/InvestmentsType'
 };
 
 /*
