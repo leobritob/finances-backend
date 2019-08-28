@@ -63,6 +63,9 @@ Route.group(function() {
   Route.put('investments/:id', 'Api/V1/InvestmentController.update').middleware(['auth']);
   Route.delete('investments/:id', 'Api/V1/InvestmentController.destroy').middleware(['auth']);
 
+  // Investments Reports
+  Route.get('investments-reports', 'Api/V1/InvestmentController.reports');
+
   // Investments Types
   Route.get('investments-types', 'Api/V1/InvestmentsTypeController.index').middleware(['auth']);
   Route.post('investments-types', 'Api/V1/InvestmentsTypeController.store').middleware(['auth']);

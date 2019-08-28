@@ -23,16 +23,22 @@ class InvestmentsTypeController {
   async update({ params: { id }, request, response }) {
     const investment = await InvestmentsType.findOrFail(id);
     investment.merge(request.only(['name', 'description', 'risk']));
+
     const save = await investment.save();
     if (save) return investment;
+
     return response.status(400).send({
       message: 'Não foi atualizado porque não foi identificado mudanças no cadastro.'
     });
   }
 
-  async destroy({ params: { id } }) {
+  async destroy({ params: { id }, response }) {
     const investment = await InvestmentsType.findOrFail(id);
-    return investment.delete();
+
+    const investmentDeleted = investment.delete();
+    if (investmentDeleted) return response.status(204).send();
+
+    return response.status(400).send({ message: 'Não foi possível apagar o tipo de investimento' });
   }
 }
 
