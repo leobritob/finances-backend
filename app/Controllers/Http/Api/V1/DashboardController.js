@@ -44,14 +44,16 @@ class DashboardController {
 
     const q = await Database.raw(
       `
-      SELECT EXTRACT(MONTH FROM bc.date) AS short_month,
+      SELECT
+        EXTRACT(MONTH FROM bc.date) AS short_month,
+        TO_CHAR(bc.date::DATE, 'Mon') AS month_label,
         TO_CHAR(bc.date::DATE, 'yyyy')::INTEGER AS short_year,
         COALESCE(SUM(CASE WHEN bcc.billing_cycles_type_id = 1 THEN bc.value ELSE 0 END), 0) AS revenue,
         COALESCE(SUM(CASE WHEN bcc.billing_cycles_type_id = 2 THEN bc.value ELSE 0 END)) AS expenses
       FROM billing_cycles bc
-          INNER JOIN billing_cycles_categories bcc on bc.billing_cycles_category_id = bcc.id
+        INNER JOIN billing_cycles_categories bcc on bc.billing_cycles_category_id = bcc.id
       WHERE bc.date BETWEEN :startDate AND :endDate
-      GROUP BY short_month, short_year
+      GROUP BY short_month, short_year, month_label
       ORDER BY short_year DESC, short_month
     `,
       { startDate, endDate }
@@ -71,7 +73,7 @@ class DashboardController {
 
     const q = await Database.raw(
       `
-      SELECT SUM(i.value) AS value, it.name
+      SELECT SUM(i.value) AS value, it.name, it.color
       FROM investments i
         INNER JOIN investments_types it on i.investments_type_id = it.id
       WHERE i.date BETWEEN :startDate AND :endDate

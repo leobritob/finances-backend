@@ -13,7 +13,7 @@ class InvestmentsTypeController {
   }
 
   async store({ request }) {
-    return InvestmentsType.create(request.only(['name', 'description', 'risk']));
+    return InvestmentsType.create(request.only(['name', 'description', 'color', 'risk']));
   }
 
   async show({ params: { id } }) {
@@ -22,7 +22,7 @@ class InvestmentsTypeController {
 
   async update({ params: { id }, request, response }) {
     const investment = await InvestmentsType.findOrFail(id);
-    investment.merge(request.only(['name', 'description', 'risk']));
+    investment.merge(request.only(['name', 'description', 'color', 'risk']));
 
     const save = await investment.save();
     if (save) return investment;
