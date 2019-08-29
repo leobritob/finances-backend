@@ -14,20 +14,19 @@ class BillingCyclesCategoryController {
   }
 
   async store({ request }) {
-    return BillingCyclesCategory.create(
-      request.only(['billing_cycles_type_id', 'name'])
-    );
+    return BillingCyclesCategory.create(request.only(['billing_cycles_type_id', 'name']));
   }
 
   async show({ params: { id } }) {
-    return BillingCyclesCategory.findOrFail(id);
+    return BillingCyclesCategory.query()
+      .with('billingCyclesType')
+      .where('id', id)
+      .firstOrFail();
   }
 
   async update({ params: { id }, request, response }) {
     const billingCycleCategory = await BillingCyclesCategory.findOrFail(id);
-    billingCycleCategory.merge(
-      request.only(['billing_cycles_type_id', 'name'])
-    );
+    billingCycleCategory.merge(request.only(['billing_cycles_type_id', 'name']));
 
     const isSave = billingCycleCategory.save();
     if (isSave) return billingCycleCategory;
@@ -43,9 +42,7 @@ class BillingCyclesCategoryController {
     const isDelete = billingCycleCategory.delete();
     if (isDelete) return response.status(204).send();
 
-    return response
-      .status(400)
-      .send({ message: 'Não foi possível apagar a categoria.' });
+    return response.status(400).send({ message: 'Não foi possível apagar a categoria.' });
   }
 }
 

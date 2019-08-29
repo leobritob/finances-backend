@@ -19,7 +19,10 @@ class InvestmentController {
   }
 
   async show({ params: { id } }) {
-    return Investment.findOrFail(id);
+    return Investment.query()
+      .with('investmentsType')
+      .where('id', id)
+      .firstOrFail();
   }
 
   async update({ params: { id }, request, response }) {

@@ -24,6 +24,11 @@ Route.group(function() {
 }).prefix('api');
 
 Route.group(function() {
+  // Dashboard
+  Route.get('dashboard-general', 'Api/V1/DashboardController.general').middleware(['auth']);
+  Route.get('dashboard-general-with-months', 'Api/V1/DashboardController.generalWithMonths').middleware(['auth']);
+  Route.get('dashboard-general-investments', 'Api/V1/DashboardController.generalInvestments').middleware(['auth']);
+
   // Users
   Route.get('users', 'Api/V1/UserController.index').middleware(['auth']);
   Route.post('users', 'Api/V1/UserController.store');
@@ -40,7 +45,6 @@ Route.group(function() {
 
   // BillingCycles Reports
   Route.get('billing-cycles-reports', 'Api/V1/BillingCycleController.reports').middleware(['auth']);
-  Route.get('billing-cycles-general-reports', 'Api/V1/BillingCycleController.generalReports').middleware(['auth']);
 
   // BillingCyclesTypes
   Route.get('billing-cycles-types', 'Api/V1/BillingCyclesTypeController.index').middleware(['auth']);
