@@ -16,14 +16,7 @@ class BillingCycleController {
   }
 
   async store({ request }) {
-    return BillingCycle.create(
-      request.only([
-        'billing_cycles_category_id',
-        'value',
-        'date',
-        'description'
-      ])
-    );
+    return BillingCycle.create(request.only(['billing_cycles_category_id', 'value', 'date', 'description']));
   }
 
   async show({ params: { id } }) {
@@ -35,21 +28,13 @@ class BillingCycleController {
 
   async update({ params: { id }, request, response }) {
     const billingCycle = await BillingCycle.findOrFail(id);
-    billingCycle.merge(
-      request.only([
-        'billing_cycles_category_id',
-        'value',
-        'date',
-        'description'
-      ])
-    );
+    billingCycle.merge(request.only(['billing_cycles_category_id', 'value', 'date', 'description']));
 
     const isSave = billingCycle.save();
     if (isSave) return billingCycle;
 
     return response.status(400).send({
-      message:
-        'Faturamento não foi salvo porque não houve alteração no cadastro.'
+      message: 'Faturamento não foi salvo porque não houve alteração no cadastro.'
     });
   }
 
@@ -59,25 +44,18 @@ class BillingCycleController {
     const isDelete = billingCycle.delete();
     if (isDelete) return response.status(204).send();
 
-    return response
-      .status(400)
-      .send({ message: 'Não foi possível apagar o faturamento.' });
+    return response.status(400).send({ message: 'Não foi possível apagar o faturamento.' });
   }
 
   async reports({ request, response }) {
     let { billing_cycles_type_id } = request.all();
 
     if (typeof billing_cycles_type_id === 'undefined') {
-      return response
-        .status(400)
-        .send({ message: 'Informe o tipo do ciclo de faturamento' });
+      return response.status(400).send({ message: 'Informe o tipo do ciclo de faturamento' });
     }
 
     const dateNow = dateFns.format(new Date(), 'yyyy-MM-dd');
-    const currentMonth = dateFns.format(
-      dateFns.parse(dateNow, 'yyyy-MM-dd', new Date()),
-      'MM'
-    );
+    const currentMonth = dateFns.format(dateFns.parse(dateNow, 'yyyy-MM-dd', new Date()), 'MM');
     const lastMonth = currentMonth - 1;
 
     const result = await Database.raw(
@@ -95,8 +73,6 @@ class BillingCycleController {
 
     return result.rows[0];
   }
-
-  async generalReports({ request, response }) {}
 }
 
 module.exports = BillingCycleController;

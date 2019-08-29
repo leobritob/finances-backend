@@ -13,9 +13,16 @@ class InvestmentsFilter extends ModelFilter {
     return this.where('(lower(description) LIKE ?)', [`%${description}%`]);
   }
 
+  dateGte(date) {
+    return this.whereRaw('DATE(date) >= ?', [date]);
+  }
+  dateLte(date) {
+    return this.whereRaw('DATE(date) <= ?', [date]);
+  }
+
   search(search) {
     search = search.toLowerCase();
-    return this.where('(lower(name) LIKE ? OR lower(description) LIKE ?)', [`%${search}%`, `%${search}%`]);
+    return this.whereRaw('(lower(name) LIKE ? OR lower(description) LIKE ?)', [`%${search}%`, `%${search}%`]);
   }
 }
 

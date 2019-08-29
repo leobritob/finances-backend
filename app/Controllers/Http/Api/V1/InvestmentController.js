@@ -1,6 +1,8 @@
 'use strict';
 
 const Investment = use('InvestmentModel');
+const Database = use('Database');
+const dateFns = use('date-fns');
 
 class InvestmentController {
   async index({ request }) {
@@ -17,7 +19,10 @@ class InvestmentController {
   }
 
   async show({ params: { id } }) {
-    return Investment.findOrFail(id);
+    return Investment.query()
+      .with('investmentsType')
+      .where('id', id)
+      .firstOrFail();
   }
 
   async update({ params: { id }, request, response }) {
@@ -30,9 +35,32 @@ class InvestmentController {
     });
   }
 
-  async destroy({ params: { id } }) {
+  async destroy({ params: { id }, response }) {
     const investment = await Investment.findOrFail(id);
-    return investment.delete();
+
+    const deleteInvestment = investment.delete();
+    if (deleteInvestment) return response.status(204).send();
+
+    return response.status(400).send({ message: 'Não foi possível apagar o investimento' });
+  }
+
+  async reports() {
+    const dateNow = dateFns.format(new Date(), 'yyyy-MM-dd');
+    const currentMonth = dateFns.format(dateFns.parse(dateNow, 'yyyy-MM-dd', new Date()), 'MM');
+    const lastMonth = currentMonth - 1;
+
+    const result = await Database.raw(
+      `
+      SELECT
+        (SUM(CASE WHEN DATE(date) = ? THEN i.value ELSE 0 END)) as today,
+        (SUM(CASE WHEN EXTRACT(MONTH FROM date)::INTEGER = ? THEN i.value ELSE 0 END)) as current_month,
+        (SUM(CASE WHEN EXTRACT(MONTH FROM date)::INTEGER = ? THEN i.value ELSE 0 END)) as last_month
+      FROM investments i
+      `,
+      [dateNow, currentMonth, lastMonth]
+    );
+
+    return result.rows[0];
   }
 }
 
