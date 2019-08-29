@@ -10,6 +10,7 @@ class InvestmentController {
     const page = query.page || 1;
     return Investment.query()
       .filter(query)
+      .with('investmentsType')
       .orderBy('id', 'asc')
       .paginate(page, 20);
   }
@@ -52,12 +53,12 @@ class InvestmentController {
     const result = await Database.raw(
       `
       SELECT
-        (SUM(CASE WHEN DATE(date) = ? THEN i.value ELSE 0 END)) as today,
-        (SUM(CASE WHEN EXTRACT(MONTH FROM date)::INTEGER = ? THEN i.value ELSE 0 END)) as current_month,
-        (SUM(CASE WHEN EXTRACT(MONTH FROM date)::INTEGER = ? THEN i.value ELSE 0 END)) as last_month
+        (SUM(CASE WHEN DATE(date) = :dateNow THEN i.value ELSE 0 END)) as today,
+        (SUM(CASE WHEN EXTRACT(MONTH FROM date)::INTEGER = :currentMonth THEN i.value ELSE 0 END)) as current_month,
+        (SUM(CASE WHEN EXTRACT(MONTH FROM date)::INTEGER = :lastMonth THEN i.value ELSE 0 END)) as last_month
       FROM investments i
       `,
-      [dateNow, currentMonth, lastMonth]
+      { dateNow, currentMonth, lastMonth }
     );
 
     return result.rows[0];

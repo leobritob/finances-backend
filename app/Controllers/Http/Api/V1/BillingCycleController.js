@@ -61,14 +61,14 @@ class BillingCycleController {
     const result = await Database.raw(
       `
       SELECT
-        (SUM(CASE WHEN DATE(date) = ? THEN bc.value ELSE 0 END)) as today,
-        (SUM(CASE WHEN EXTRACT(MONTH FROM date)::INTEGER = ? THEN bc.value ELSE 0 END)) as current_month,
-        (SUM(CASE WHEN EXTRACT(MONTH FROM date)::INTEGER = ? THEN bc.value ELSE 0 END)) as last_month
+        (SUM(CASE WHEN DATE(date) = :dateNow THEN bc.value ELSE 0 END)) as today,
+        (SUM(CASE WHEN EXTRACT(MONTH FROM date)::INTEGER = :currentMonth THEN bc.value ELSE 0 END)) as current_month,
+        (SUM(CASE WHEN EXTRACT(MONTH FROM date)::INTEGER = :lastMonth THEN bc.value ELSE 0 END)) as last_month
       FROM billing_cycles bc
         INNER JOIN billing_cycles_categories bcc ON bc.billing_cycles_category_id = bcc.id
-      WHERE bcc.billing_cycles_type_id = ?
+      WHERE bcc.billing_cycles_type_id = :billing_cycles_type_id
       `,
-      [dateNow, currentMonth, lastMonth, billing_cycles_type_id]
+      { dateNow, currentMonth, lastMonth, billing_cycles_type_id }
     );
 
     return result.rows[0];
