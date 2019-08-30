@@ -16,7 +16,7 @@ class CompaniesSchema extends Schema {
       table.string('street_number');
       table.string('district');
       table.string('city');
-      table.string('state');
+      table.string('uf');
       table.string('country');
       table.string('logo');
       table.timestamps();

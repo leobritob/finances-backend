@@ -9,6 +9,14 @@ class Company extends Model {
     this.addHook('beforeSave', ['CompanyHook.validate']);
     this.addTrait('@provider:Filterable', CompaniesFilter);
   }
+
+  static castDates(field, value) {
+    return value.toISOString();
+  }
+
+  users() {
+    return this.belongsToMany('UserModel').pivotModel('CompaniesUserModel');
+  }
 }
 
 module.exports = Company;

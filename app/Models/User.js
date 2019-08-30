@@ -33,6 +33,10 @@ class User extends Model {
   tokens() {
     return this.hasMany('TokenModel');
   }
+
+  companies() {
+    return this.belongsToMany('CompanyModel').pivotModel('CompaniesUserModel');
+  }
 }
 
 module.exports = User;

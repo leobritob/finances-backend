@@ -25,7 +25,7 @@ class CompanyController {
         'street_number',
         'district',
         'city',
-        'state',
+        'uf',
         'country',
         'logo'
       ])
@@ -50,7 +50,7 @@ class CompanyController {
         'street_number',
         'district',
         'city',
-        'state',
+        'uf',
         'country',
         'logo'
       ])

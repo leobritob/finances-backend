@@ -9,6 +9,14 @@ class CompaniesUser extends Model {
     this.addHook('beforeSave', ['CompaniesUserHook.validate']);
     this.addTrait('@provider:Filterable', CompaniesUsersFilter);
   }
+
+  company() {
+    return this.belongsTo('CompanyModel');
+  }
+
+  user() {
+    return this.belongsTo('UserModel');
+  }
 }
 
 module.exports = CompaniesUser;
