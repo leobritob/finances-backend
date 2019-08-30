@@ -28,6 +28,7 @@ Route.group(function() {
   Route.get('dashboard-general', 'Api/V1/DashboardController.general').middleware(['auth']);
   Route.get('dashboard-general-with-months', 'Api/V1/DashboardController.generalWithMonths').middleware(['auth']);
   Route.get('dashboard-general-investments', 'Api/V1/DashboardController.generalInvestments').middleware(['auth']);
+  Route.get('dashboard-general-pdf', 'Api/V1/DashboardController.generalPdf').middleware(['auth']);
 
   // Users
   Route.get('users', 'Api/V1/UserController.index').middleware(['auth']);

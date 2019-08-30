@@ -33,6 +33,8 @@
     "adonis-acl": "^1.1.1",
     "adonis-lucid-filter": "^1.0.4",
     "date-fns": "^2.0.0-beta.3",
+    "get-stream": "^5.1.0",
+    "pdfmake": "^0.1.58",
     "pg": "^7.11.0"
   },
   "devDependencies": {
