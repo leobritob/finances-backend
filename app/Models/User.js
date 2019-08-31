@@ -35,7 +35,7 @@ class User extends Model {
   }
 
   companies() {
-    return this.belongsToMany('CompanyModel').pivotModel('CompaniesUserModel');
+    return this.belongsToMany('CompanyModel', 'user_id', 'company_id', 'id', 'id').pivotModel('CompaniesUserModel');
   }
 }
 

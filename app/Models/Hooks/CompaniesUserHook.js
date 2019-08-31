@@ -8,7 +8,7 @@ const CompaniesUserHook = (exports = module.exports = {});
 CompaniesUserHook.validate = async modelInstance => {
   const rules = {
     company_id: 'required|exists:companies,id',
-    user_id: 'required|exists:companies,id'
+    user_id: 'required|exists:users,id'
   };
 
   const messages = {

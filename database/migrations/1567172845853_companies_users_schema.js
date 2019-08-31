@@ -19,7 +19,7 @@ class CompaniesUsersSchema extends Schema {
         .notNullable()
         .unsigned()
         .references('id')
-        .inTable('companies')
+        .inTable('users')
         .index()
         .onDelete('cascade');
       table.timestamps();

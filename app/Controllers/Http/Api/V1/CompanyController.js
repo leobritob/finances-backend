@@ -12,24 +12,27 @@ class CompanyController {
       .paginate(page, 20);
   }
 
-  async store({ request }) {
-    return Company.create(
-      request.only([
-        'social_name',
-        'fantasy_name',
-        'cnpj',
-        'email',
-        'cellphone',
-        'telephone',
-        'street_name',
-        'street_number',
-        'district',
-        'city',
-        'uf',
-        'country',
-        'logo'
-      ])
-    );
+  async store({ request, auth }) {
+    const user = await auth.getUser();
+    return await user
+      .companies()
+      .create(
+        request.only([
+          'social_name',
+          'fantasy_name',
+          'cnpj',
+          'email',
+          'cellphone',
+          'telephone',
+          'street_name',
+          'street_number',
+          'district',
+          'city',
+          'uf',
+          'country',
+          'logo'
+        ])
+      );
   }
 
   async show({ params: { id } }) {
@@ -37,26 +40,14 @@ class CompanyController {
   }
 
   async update({ params: { id }, request, response }) {
-    const company = await Company.findOrFail(id);
-    company.merge(
-      request.only([
-        'social_name',
-        'fantasy_name',
-        'cnpj',
-        'email',
-        'cellphone',
-        'telephone',
-        'street_name',
-        'street_number',
-        'district',
-        'city',
-        'uf',
-        'country',
-        'logo'
-      ])
-    );
-    const save = await company.save();
-    if (save) return company;
+    const company = await Company.query()
+      .where('id', id)
+      .firstOrFail();
+    company.merge(request.all());
+
+    const saveCompany = await company.save();
+    if (saveCompany) return company;
+
     return response.status(400).send({
       message: 'Não foi atualizado porque não foi identificado mudanças no cadastro.'
     });
