@@ -1,18 +1,21 @@
 'use strict';
 
-const BillingCyclesType = use('BillingCyclesTypeModel');
+const Company = use('CompanyModel');
 
 class BillingCyclesTypeSeeder {
   async run() {
-    await BillingCyclesType.create({
-      name: 'Receitas',
-      description: 'Receitas'
-    });
+    const company = await Company.findOrFail(1);
 
-    await BillingCyclesType.create({
-      name: 'Despesas',
-      description: 'Despesas'
-    });
+    await company.billingCyclesTypes().createMany([
+      {
+        name: 'Receitas',
+        description: 'Receitas'
+      },
+      {
+        name: 'Despesas',
+        description: 'Despesas'
+      }
+    ]);
   }
 }
 

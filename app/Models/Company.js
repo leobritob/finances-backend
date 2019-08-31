@@ -17,6 +17,26 @@ class Company extends Model {
   users() {
     return this.belongsToMany('UserModel').pivotModel('CompaniesUserModel');
   }
+
+  billingCyclesTypes() {
+    return this.hasMany('BillingCyclesTypeModel');
+  }
+
+  billingCyclesCategories() {
+    return this.hasMany('BillingCyclesCategoryModel');
+  }
+
+  billingCycles() {
+    return this.hasMany('BillingCycleModel');
+  }
+
+  investments() {
+    return this.hasMany('InvestmentModel');
+  }
+
+  investmentsTypes() {
+    return this.hasMany('InvestmentsTypeModel');
+  }
 }
 
 module.exports = Company;

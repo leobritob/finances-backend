@@ -8,24 +8,29 @@ class BillingCyclesCategorySeeder {
       .where('name', 'Receitas')
       .firstOrFail();
 
-    revenue
+    await revenue
       .categories()
-      .createMany([{ name: 'Salário' }, { name: 'Hora Extra' }, { name: 'Bônus' }, { name: 'Freelance' }]);
+      .createMany([
+        { name: 'Salário', company_id: 1 },
+        { name: 'Hora Extra', company_id: 1 },
+        { name: 'Bônus', company_id: 1 },
+        { name: 'Freelance', company_id: 1 }
+      ]);
 
     const expenses = await BillingCyclesType.query()
       .where('name', 'Despesas')
       .firstOrFail();
 
-    expenses
+    await expenses
       .categories()
       .createMany([
-        { name: 'Educação' },
-        { name: 'Saúde' },
-        { name: 'Transporte' },
-        { name: 'Serviços' },
-        { name: 'Impostos' },
-        { name: 'Taxas e Tarifas' },
-        { name: 'Lazer' }
+        { name: 'Educação', company_id: 1 },
+        { name: 'Saúde', company_id: 1 },
+        { name: 'Transporte', company_id: 1 },
+        { name: 'Serviços', company_id: 1 },
+        { name: 'Impostos', company_id: 1 },
+        { name: 'Taxas e Tarifas', company_id: 1 },
+        { name: 'Lazer', company_id: 1 }
       ]);
   }
 }

@@ -1,10 +1,12 @@
 'use strict';
 
-const InvestmentsType = use('InvestmentsTypeModel');
+const Company = use('CompanyModel');
 
 class InvestmentsTypeSeeder {
   async run() {
-    await InvestmentsType.createMany([
+    const company = await Company.findOrFail(1);
+
+    await company.investmentsTypes().createMany([
       { name: 'Tesouro Selic', description: 'Tesouro Selic', risk: 1, color: '#FF6384' },
       { name: 'Tesouro IPCA', description: 'Tesour IPCA', risk: 1, color: '#11AA84' },
       { name: 'Tesouro Prefixado', description: 'Tesour Prefixado', risk: 1, color: '#FFAA00' },
