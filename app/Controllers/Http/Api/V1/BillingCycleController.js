@@ -16,19 +16,25 @@ class BillingCycleController {
   }
 
   async store({ request }) {
-    return BillingCycle.create(request.only(['billing_cycles_category_id', 'value', 'date', 'description']));
+    return BillingCycle.create(
+      request.only(['billing_cycles_category_id', 'value', 'date', 'description', 'company_id'])
+    );
   }
 
   async show({ params: { id } }) {
-    return BillingCycle.query()
-      .with('billingCyclesCategory')
-      .where('id', id)
-      .firstOrFail();
+    const q = await Database.table('billing_cycles AS bc')
+      .select('bc.*')
+      .select('bcc.name AS billing_cycles_category_name')
+      .select('c.fantasy_name AS company_fantasy_name')
+      .innerJoin('billing_cycles_categories AS bcc', 'bc.billing_cycles_category_id', 'bcc.id')
+      .innerJoin('companies AS c', 'bc.company_id', 'c.id')
+      .where('bc.id', id);
+    return q[0];
   }
 
   async update({ params: { id }, request, response }) {
     const billingCycle = await BillingCycle.findOrFail(id);
-    billingCycle.merge(request.only(['billing_cycles_category_id', 'value', 'date', 'description']));
+    billingCycle.merge(request.only(['billing_cycles_category_id', 'value', 'date', 'description', 'company_id']));
 
     const isSave = billingCycle.save();
     if (isSave) return billingCycle;

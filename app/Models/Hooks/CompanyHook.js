@@ -12,13 +12,14 @@ CompanyHook.validate = async modelInstance => {
   }
 
   const rules = {
-    social_name: 'required',
+    social_name: `required|uniqueData:companies,social_name${uniqueWhenUpdate}`,
     fantasy_name: 'required',
     cnpj: `required|cnpj|uniqueData:companies,cnpj${uniqueWhenUpdate}`
   };
 
   const messages = {
     'social_name.required': 'Por favor, preencha a razão social',
+    'social_name.uniqueData': 'Esta razão social já está em uso',
     'fantasy_name.required': 'Por favor, preencha o nome fantasia',
     'cnpj.required': 'Por favor, preencha o cnpj',
     'cnpj.cnpj': 'Por favor, informe um cnpj válido',

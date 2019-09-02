@@ -1,15 +1,31 @@
 'use strict';
 
 const Company = use('CompanyModel');
+const Database = use('Database');
 
 class CompanyController {
-  async index({ request }) {
+  async index({ request, auth }) {
     const query = request.all();
     const page = query.page || 1;
-    return Company.query()
-      .filter(query)
-      .orderBy('id', 'asc')
-      .paginate(page, 20);
+    const perPage = query.perPage || 20;
+
+    const queryCompaniesUsers = Database.table('companies_users AS cu')
+      .select('c.*')
+      .innerJoin('companies AS c', 'cu.company_id', 'c.id')
+      .where('cu.user_id', auth.user.id);
+
+    if (typeof query === 'object' && query.search) {
+      queryCompaniesUsers.whereRaw(
+        '(lower(cu.fantasy_name) LIKE :search OR lower(cu.social_name) LIKE :search OR c.cnpj LIKE :search)',
+        { search: `%${query.search.toLowerCase()}%` }
+      );
+    }
+
+    if (perPage === 'total') {
+      return queryCompaniesUsers;
+    }
+
+    return queryCompaniesUsers.paginate(page, perPage);
   }
 
   async store({ request, auth }) {
