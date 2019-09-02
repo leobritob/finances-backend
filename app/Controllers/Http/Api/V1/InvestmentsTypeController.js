@@ -25,10 +25,16 @@ class InvestmentsTypeController {
       .select('c.fantasy_name AS company_fantasy_name')
       .innerJoin('companies AS c', 'it.company_id', 'c.id');
 
-    if (typeof query === 'object' && query.search) {
-      queryInvestmentsTypes.whereRaw('(lower(it.name) LIKE :search OR lower(it.description) LIKE :search)', {
-        search: `%${query.search.toLowerCase()}%`
-      });
+    if (typeof query === 'object' && query) {
+      if (query.company_id) {
+        queryInvestmentsTypes.where('it.company_id', query.company_id);
+      }
+
+      if (query.search) {
+        queryInvestmentsTypes.whereRaw('(lower(it.name) LIKE :search OR lower(it.description) LIKE :search)', {
+          search: `%${query.search.toLowerCase()}%`
+        });
+      }
     }
 
     if (perPage === 'total') {

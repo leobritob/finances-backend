@@ -16,10 +16,20 @@ class BillingCyclesCategoryController {
       .innerJoin('billing_cycles_types AS bct', 'bcc.billing_cycles_type_id', 'bct.id')
       .innerJoin('companies AS c', 'bcc.company_id', 'c.id');
 
-    if (typeof query === 'object' && query.search) {
-      queryInvestments.whereRaw('(lower(bcc.name) LIKE :search OR lower(bct.name) LIKE :search)', {
-        search: `%${query.search.toLowerCase()}%`
-      });
+    if (typeof query === 'object' && query) {
+      if (query.billing_cycles_type_id) {
+        queryInvestments.where('bcc.billing_cycles_type_id', query.billing_cycles_type_id);
+      }
+
+      if (query.company_id) {
+        queryInvestments.where('bcc.company_id', query.company_id);
+      }
+
+      if (query.search) {
+        queryInvestments.whereRaw('(lower(bcc.name) LIKE :search OR lower(bct.name) LIKE :search)', {
+          search: `%${query.search.toLowerCase()}%`
+        });
+      }
     }
 
     if (perPage === 'total') {

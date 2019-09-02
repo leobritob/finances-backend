@@ -17,13 +17,31 @@ class InvestmentController {
       .innerJoin('investments_types AS it', 'i.investments_type_id', 'it.id')
       .innerJoin('companies AS c', 'i.company_id', 'c.id');
 
-    if (typeof query === 'object' && query.search) {
-      queryInvestments.whereRaw(
-        '(lower(i.name) LIKE :search OR lower(i.description) LIKE :search OR lower(it.name) LIKE :search)',
-        {
-          search: `%${query.search.toLowerCase()}%`
-        }
-      );
+    if (typeof query === 'object' && query) {
+      if (query.investments_type_id) {
+        queryInvestments.where('i.investments_type_id', query.investments_type_id);
+      }
+
+      if (query.company_id) {
+        queryInvestments.where('i.company_id', query.company_id);
+      }
+
+      if (query.date__gte) {
+        queryInvestments.where('i.date', '>=', query.date__gte);
+      }
+
+      if (query.date__lte) {
+        queryInvestments.where('i.date', '<=', query.date__lte);
+      }
+
+      if (query.search) {
+        queryInvestments.whereRaw(
+          '(lower(i.name) LIKE :search OR lower(i.description) LIKE :search OR lower(it.name) LIKE :search)',
+          {
+            search: `%${query.search.toLowerCase()}%`
+          }
+        );
+      }
     }
 
     if (perPage === 'total') {

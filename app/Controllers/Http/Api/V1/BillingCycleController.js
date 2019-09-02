@@ -8,11 +8,48 @@ class BillingCycleController {
   async index({ request }) {
     const query = request.all();
     const page = query.page || 1;
-    return BillingCycle.query()
-      .with('billingCyclesCategory')
-      .filter(query)
-      .orderBy('id', 'asc')
-      .paginate(page, 20);
+    const perPage = query.perPage || 20;
+
+    const queryBillingCycles = Database.table('billing_cycles AS bc')
+      .select('bc.*')
+      .select('bcc.name AS billing_cycles_category_name')
+      .select('c.fantasy_name AS company_fantasy_name')
+      .innerJoin('billing_cycles_categories AS bcc', 'bc.billing_cycles_category_id', 'bcc.id')
+      .innerJoin('companies AS c', 'bc.company_id', 'c.id');
+
+    if (typeof query === 'object' && query) {
+      if (query.billing_cycles_category_id) {
+        queryBillingCycles.where('bc.billing_cycles_category_id', query.billing_cycles_category_id);
+      }
+
+      if (query.billing_cycles_type_id) {
+        queryBillingCycles.where('bcc.billing_cycles_type_id', query.billing_cycles_type_id);
+      }
+
+      if (query.company_id) {
+        queryBillingCycles.where('bc.company_id', query.company_id);
+      }
+
+      if (query.date__gte) {
+        queryBillingCycles.where('bc.date', '>=', query.date__gte);
+      }
+
+      if (query.date__lte) {
+        queryBillingCycles.where('bc.date', '<=', query.date__lte);
+      }
+
+      if (query.search) {
+        queryBillingCycles.whereRaw('(lower(bc.description) LIKE :search)', {
+          search: `%${query.search.toLowerCase()}%`
+        });
+      }
+    }
+
+    if (perPage === 'total') {
+      return queryBillingCycles;
+    }
+
+    return queryBillingCycles.paginate(page, perPage);
   }
 
   async store({ request }) {

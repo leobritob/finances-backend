@@ -3,6 +3,7 @@
 const Database = use('Database');
 const PDFMake = use('pdfmake');
 const getStream = use('get-stream');
+const dateFns = use('date-fns');
 
 class DashboardController {
   async general({ request }) {
@@ -103,7 +104,7 @@ class DashboardController {
         bcc.name AS category,
         bct.name AS type,
         TO_CHAR(bc.date, 'dd/mm/yyyy') AS date,
-        CONCAT('R$ ', bc.value) AS value
+        bc.value AS value
       FROM billing_cycles bc
         INNER JOIN billing_cycles_categories bcc on bc.billing_cycles_category_id = bcc.id
         INNER JOIN billing_cycles_types bct on bcc.billing_cycles_type_id = bct.id
@@ -115,9 +116,20 @@ class DashboardController {
 
     const queryTotal = await Database.raw(
       `
-      SELECT (
+      SELECT
+      (
         COALESCE(SUM(CASE WHEN bct.name = 'Receitas' THEN bc.value ELSE 0 END), 0) -
-        COALESCE(SUM(CASE WHEN bct.name = 'Despesas' THEN bc.value ELSE 0 END), 0)
+        (COALESCE(SUM(CASE WHEN bct.name = 'Despesas' THEN bc.value ELSE 0 END), 0))
+      ) AS billing_cycles_total,
+      (
+        SELECT COALESCE(SUM(i.value), 0) FROM investments i WHERE i.date BETWEEN :startDate AND :endDate
+      ) AS investments_total,
+      (
+        COALESCE(SUM(CASE WHEN bct.name = 'Receitas' THEN bc.value ELSE 0 END), 0) -
+        (
+          COALESCE(SUM(CASE WHEN bct.name = 'Despesas' THEN bc.value ELSE 0 END), 0) +
+          (SELECT COALESCE(SUM(i.value), 0) FROM investments i WHERE i.date BETWEEN :startDate AND :endDate)
+        )
       ) AS total
       FROM billing_cycles bc
         INNER JOIN billing_cycles_categories bcc on bc.billing_cycles_category_id = bcc.id
@@ -127,21 +139,41 @@ class DashboardController {
       { startDate, endDate }
     );
 
+    const queryInvestmentsTotal = await Database.raw(
+      `
+      SELECT
+        it.name AS investment,
+        COALESCE(SUM(i.value), 0) AS total
+      FROM investments AS i
+        INNER JOIN investments_types it on i.investments_type_id = it.id
+      WHERE i.date BETWEEN :startDate AND :endDate
+      GROUP BY investment
+    `,
+      { startDate, endDate }
+    );
+
     let body = [];
 
     if (q.rows && q.rows.length > 0) {
       q.rows.forEach(billingCycle => {
         let billingCycleValue = billingCycle.value;
+        let tableColumnStyle = 'tableColumnText';
+
+        billingCycleValue = Intl.NumberFormat('pt-BR', {
+          style: 'currency',
+          currency: 'BRL'
+        }).format(billingCycle.value);
+
         if (billingCycle.type === 'Despesas') {
-          billingCycleValue = `- ${billingCycle.value}`;
+          tableColumnStyle = 'tableColumnExpenseText';
+          billingCycleValue = `- ${billingCycleValue}`;
         }
 
         body.push([
-          { text: billingCycle.description, style: 'tableColumnText' },
-          { text: billingCycle.type, style: 'tableColumnText' },
-          { text: billingCycle.category, style: 'tableColumnText' },
-          { text: billingCycle.date, style: 'tableColumnText' },
-          { text: billingCycleValue, style: 'tableColumnValue' }
+          { text: billingCycle.description, style: tableColumnStyle },
+          { text: billingCycle.category, style: tableColumnStyle },
+          { text: billingCycle.date, style: tableColumnStyle },
+          { text: billingCycleValue, style: [tableColumnStyle, 'tableColumnValue'] }
         ]);
       });
     }
@@ -154,33 +186,88 @@ class DashboardController {
       },
       defaultStyle: { font: 'Helvetica' },
       content: [
-        { text: 'Relatório FinancesApp', style: 'title', margin: [30, 30, 30, 30, 30] },
+        { text: 'Relatório FinancesApp', style: 'title', margin: [0, 30, 0, 5] },
+        {
+          text: `${dateFns.format(
+            dateFns.parse(startDate, 'yyyy-MM-dd', new Date()),
+            'dd/MM/yyyy'
+          )} até ${dateFns.format(dateFns.parse(endDate, 'yyyy-MM-dd', new Date()), 'dd/MM/yyyy')}`,
+          style: 'subTitle',
+          margin: [0, 0, 0, 30]
+        },
         {
           layout: 'lightHorizontalLines',
+          margin: [0, 10, 0, 10],
           table: {
             headerRows: 1,
-            widths: ['*', 60, 100, 55, 70],
+            widths: ['*', 100, 55, 70],
             body: [
               [
                 { text: 'Descrição', style: 'tableHeaderText' },
-                { text: 'Tipo', style: 'tableHeaderText' },
                 { text: 'Categoria', style: 'tableHeaderText' },
                 { text: 'Data', style: 'tableHeaderText' },
                 { text: 'Valor (R$)', style: 'tableHeaderRight' }
               ],
-              ...body
+              ...body,
+              [
+                { text: 'SubTotal', style: 'tableHeaderText' },
+                { text: '-', style: 'tableHeaderText' },
+                { text: '-', style: 'tableHeaderText' },
+                {
+                  text: Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(
+                    queryTotal.rows[0].billing_cycles_total
+                  ),
+                  style: 'tableHeaderRight'
+                }
+              ]
             ]
           }
         },
         {
           layout: 'lightHorizontalLines',
+          margin: [0, 10, 0, 10],
           table: {
             headerRows: 1,
             widths: ['*', 70],
             body: [
+              [{ text: 'Investimentos', style: 'tableHeaderText' }, { text: 'Valor (R$)', style: 'tableHeaderRight' }],
+              ...queryInvestmentsTotal.rows.map(i => {
+                return [
+                  { text: i.investment, style: 'tableColumnText' },
+                  {
+                    text: Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(i.total),
+                    style: 'tableColumnValue'
+                  }
+                ];
+              }),
               [
-                { text: 'SubTotal', style: 'tableColumnText' },
-                { text: `R$ ${queryTotal.rows[0].total}`, style: 'tableColumnValue' }
+                { text: 'SubTotal', style: 'tableHeaderText' },
+                {
+                  text: Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(
+                    queryTotal.rows[0].investments_total
+                  ),
+                  style: 'tableHeaderRight'
+                }
+              ]
+            ]
+          }
+        },
+        {
+          layout: 'lightHorizontalLines',
+          margin: [0, 10, 0, 10],
+          table: {
+            headerRows: 1,
+            widths: ['*', 70],
+            body: [
+              [{ text: 'Resumo', style: 'tableHeaderText' }, { text: 'Valor (R$)', style: 'tableHeaderRight' }],
+              [
+                { text: 'Total', style: 'tableHeaderText' },
+                {
+                  text: Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(
+                    queryTotal.rows[0].total
+                  ),
+                  style: 'tableHeaderRight'
+                }
               ]
             ]
           }
@@ -188,9 +275,11 @@ class DashboardController {
       ],
       styles: {
         title: { fontSize: 18, bold: true, alignment: 'center' },
+        subTitle: { fontSize: 10, alignment: 'center' },
         tableHeaderText: { fontSize: 10, bold: true, alignment: 'left' },
         tableHeaderRight: { fontSize: 10, bold: true, alignment: 'right' },
         tableColumnText: { fontSize: 10 },
+        tableColumnExpenseText: { fontSize: 10, color: '#ff0000' },
         tableColumnValue: { fontSize: 10, alignment: 'right' }
       },
       footer: function(currentPage, pageCount) {

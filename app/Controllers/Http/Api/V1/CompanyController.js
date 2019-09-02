@@ -16,7 +16,7 @@ class CompanyController {
 
     if (typeof query === 'object' && query.search) {
       queryCompaniesUsers.whereRaw(
-        '(lower(cu.fantasy_name) LIKE :search OR lower(cu.social_name) LIKE :search OR c.cnpj LIKE :search)',
+        '(lower(c.fantasy_name) LIKE :search OR lower(c.social_name) LIKE :search OR c.cnpj LIKE :search)',
         { search: `%${query.search.toLowerCase()}%` }
       );
     }

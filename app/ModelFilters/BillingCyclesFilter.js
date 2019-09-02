@@ -8,11 +8,7 @@ class BillingCyclesFilter extends ModelFilter {
   }
 
   billingCyclesType(billing_cycles_type_id) {
-    return this.related(
-      'billingCyclesCategory',
-      'billing_cycles_type_id',
-      billing_cycles_type_id
-    );
+    return this.related('billingCyclesCategory', 'billing_cycles_type_id', billing_cycles_type_id);
   }
 
   value(value) {
@@ -35,6 +31,7 @@ class BillingCyclesFilter extends ModelFilter {
   dateGte(date) {
     return this.whereRaw('DATE(date) >= ?', [date]);
   }
+
   dateLte(date) {
     return this.whereRaw('DATE(date) <= ?', [date]);
   }
