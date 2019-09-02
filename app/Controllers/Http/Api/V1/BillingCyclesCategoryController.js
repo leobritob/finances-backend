@@ -1,32 +1,62 @@
 'use strict';
 
 const BillingCyclesCategory = use('BillingCyclesCategoryModel');
+const Database = use('Database');
 
 class BillingCyclesCategoryController {
   async index({ request }) {
     const query = request.all();
     const page = query.page || 1;
-    return BillingCyclesCategory.query()
-      .filter(query)
-      .with('billingCyclesType')
-      .orderBy('id', 'asc')
-      .paginate(page, 20);
+    const perPage = query.perPage || 20;
+
+    const queryInvestments = Database.table('billing_cycles_categories AS bcc')
+      .select('bcc.*')
+      .select('bct.name AS billing_cycles_type_name')
+      .select('c.fantasy_name AS company_fantasy_name')
+      .innerJoin('billing_cycles_types AS bct', 'bcc.billing_cycles_type_id', 'bct.id')
+      .innerJoin('companies AS c', 'bcc.company_id', 'c.id');
+
+    if (typeof query === 'object' && query) {
+      if (query.billing_cycles_type_id) {
+        queryInvestments.where('bcc.billing_cycles_type_id', query.billing_cycles_type_id);
+      }
+
+      if (query.company_id) {
+        queryInvestments.where('bcc.company_id', query.company_id);
+      }
+
+      if (query.search) {
+        queryInvestments.whereRaw('(lower(bcc.name) LIKE :search OR lower(bct.name) LIKE :search)', {
+          search: `%${query.search.toLowerCase()}%`
+        });
+      }
+    }
+
+    if (perPage === 'total') {
+      return queryInvestments;
+    }
+
+    return queryInvestments.paginate(page, perPage);
   }
 
   async store({ request }) {
-    return BillingCyclesCategory.create(request.only(['billing_cycles_type_id', 'name']));
+    return BillingCyclesCategory.create(request.only(['company_id', 'billing_cycles_type_id', 'name']));
   }
 
   async show({ params: { id } }) {
-    return BillingCyclesCategory.query()
-      .with('billingCyclesType')
-      .where('id', id)
-      .firstOrFail();
+    const q = await Database.table('billing_cycles_categories AS bcc')
+      .select('bcc.*')
+      .select('bct.name AS billing_cycles_type_name')
+      .select('c.fantasy_name AS company_fantasy_name')
+      .innerJoin('billing_cycles_types AS bct', 'bcc.billing_cycles_type_id', 'bct.id')
+      .innerJoin('companies AS c', 'bcc.company_id', 'c.id')
+      .where('bcc.id', id);
+    return q[0];
   }
 
   async update({ params: { id }, request, response }) {
     const billingCycleCategory = await BillingCyclesCategory.findOrFail(id);
-    billingCycleCategory.merge(request.only(['billing_cycles_type_id', 'name']));
+    billingCycleCategory.merge(request.only(['company_id', 'billing_cycles_type_id', 'name']));
 
     const isSave = billingCycleCategory.save();
     if (isSave) return billingCycleCategory;

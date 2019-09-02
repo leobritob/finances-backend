@@ -30,9 +30,13 @@ class UserController {
     });
   }
 
-  async destroy({ params: { id } }) {
+  async destroy({ params: { id }, response }) {
     const user = await User.findOrFail(id);
-    return user.delete();
+    const userDelete = user.delete();
+    if (userDelete) return response.status(204).send();
+    return response.status(400).send({
+      message: 'Houve um erro ao remover o usuário'
+    });
   }
 }
 

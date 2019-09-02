@@ -28,6 +28,21 @@ Route.group(function() {
   Route.get('dashboard-general', 'Api/V1/DashboardController.general').middleware(['auth']);
   Route.get('dashboard-general-with-months', 'Api/V1/DashboardController.generalWithMonths').middleware(['auth']);
   Route.get('dashboard-general-investments', 'Api/V1/DashboardController.generalInvestments').middleware(['auth']);
+  Route.get('dashboard-general-pdf', 'Api/V1/DashboardController.generalPdf').middleware(['auth']);
+
+  // Companies
+  Route.get('companies', 'Api/V1/CompanyController.index').middleware(['auth']);
+  Route.post('companies', 'Api/V1/CompanyController.store');
+  Route.get('companies/:id', 'Api/V1/CompanyController.show').middleware(['auth']);
+  Route.put('companies/:id', 'Api/V1/CompanyController.update').middleware(['auth']);
+  Route.delete('companies/:id', 'Api/V1/CompanyController.destroy').middleware(['auth']);
+
+  // Companies Users
+  Route.get('companies-users', 'Api/V1/CompaniesUserController.index').middleware(['auth']);
+  Route.post('companies-users', 'Api/V1/CompaniesUserController.store');
+  Route.get('companies-users/:id', 'Api/V1/CompaniesUserController.show').middleware(['auth']);
+  Route.put('companies-users/:id', 'Api/V1/CompaniesUserController.update').middleware(['auth']);
+  Route.delete('companies-users/:id', 'Api/V1/CompaniesUserController.destroy').middleware(['auth']);
 
   // Users
   Route.get('users', 'Api/V1/UserController.index').middleware(['auth']);

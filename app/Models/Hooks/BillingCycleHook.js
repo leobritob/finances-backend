@@ -7,6 +7,7 @@ const BillingCycleHook = (exports = module.exports = {});
 
 BillingCycleHook.validate = async modelInstance => {
   const rules = {
+    company_id: 'required|exists:companies,id',
     billing_cycles_category_id: 'required|exists:billing_cycles_categories,id',
     value: 'required|number',
     date: 'required|date',
@@ -14,6 +15,8 @@ BillingCycleHook.validate = async modelInstance => {
   };
 
   const messages = {
+    'company_id.required': 'Por favor, selecione uma empresa.',
+    'company_id.exists': 'Por favor, informe uma empresa válida.',
     'billing_cycles_category_id.required': 'Por favor, informe a categoria do ciclo de faturamento.',
     'billing_cycles_category_id.exists': 'Por favor, informe uma categoria válida.',
     'value.required': 'Por favor, informe o valor.',

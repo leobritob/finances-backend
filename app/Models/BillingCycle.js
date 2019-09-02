@@ -17,6 +17,10 @@ class BillingCycle extends Model {
   billingCyclesCategory() {
     return this.belongsTo('BillingCyclesCategoryModel');
   }
+
+  company() {
+    return this.belongsTo('CompanyModel');
+  }
 }
 
 module.exports = BillingCycle;

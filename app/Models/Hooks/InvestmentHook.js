@@ -7,6 +7,7 @@ const InvestmentHook = (exports = module.exports = {});
 
 InvestmentHook.validate = async modelInstance => {
   const rules = {
+    company_id: 'required|exists:companies,id',
     investments_type_id: 'required|exists:investments_types,id',
     name: 'required|max:255',
     description: 'required|max:255',
@@ -16,6 +17,8 @@ InvestmentHook.validate = async modelInstance => {
   };
 
   const messages = {
+    'company_id.required': 'Por favor, selecione uma empresa',
+    'company_id.exists': 'Por favor, informe uma empresa válida',
     'investments_type_id.required': 'Por favor, informe o tipo de investimento',
     'investments_type_id.exists': 'Por favor, informe o tipo de investimento válido',
     'name.required': 'Por favor, informe o nome.',

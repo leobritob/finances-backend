@@ -13,6 +13,10 @@ class BillingCyclesType extends Model {
   static castDates(field, value) {
     return value.toISOString();
   }
+
+  categories() {
+    return this.hasMany('BillingCyclesCategoryModel');
+  }
 }
 
 module.exports = BillingCyclesType;
