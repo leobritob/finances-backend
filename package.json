@@ -35,10 +35,10 @@
     "date-fns": "^2.0.0-beta.3",
     "get-stream": "^5.1.0",
     "pdfmake": "^0.1.58",
-    "pg": "^7.11.0"
+    "pg": "^7.11.0",
+    "@adonisjs/cli": "^4.0.12"
   },
   "devDependencies": {
-    "@adonisjs/cli": "^4.0.12",
     "eslint": "^6.0.1"
   },
   "autoload": {
