@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "make-env-file": "printenv > .env",
-    "migration-run": "node node_modules/@adonisjs/cli/index.js migration:run --force",
+    "migration-run": "adonis migration:run --force",
     "prestart": "npm run make-env-file && npm run migration-run",
     "start": "node server.js",
     "test": "node ace test"
