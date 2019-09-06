@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "make-env-file": "printenv > .env",
-    "migration-run": "node node_modules/@adonisjs/cli/index.js migration:run --force",
+    "migration-run": "adonis migration:run --force",
     "prestart": "npm run make-env-file && npm run migration-run",
     "start": "node server.js",
     "test": "node ace test"
@@ -35,7 +35,8 @@
     "date-fns": "^2.0.0-beta.3",
     "get-stream": "^5.1.0",
     "pdfmake": "^0.1.58",
-    "pg": "^7.11.0"
+    "pg": "^7.11.0",
+    "@adonisjs/cli": "^4.0.12"
   },
   "devDependencies": {
     "eslint": "^6.0.1"

@@ -21,6 +21,7 @@ Route.get('/', () => ({ status: 'OK' }));
 Route.group(function() {
   // Authentication
   Route.post('auth/token', 'Api/AuthController.token');
+  Route.get('auth/me', 'Api/AuthController.me');
 }).prefix('api');
 
 Route.group(function() {
