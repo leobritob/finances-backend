@@ -32,7 +32,10 @@ const providers = [
 | Providers for migrations, tests etc.
 |
 */
-const aceProviders = ['@adonisjs/lucid/providers/MigrationsProvider', 'adonis-acl/providers/CommandsProvider'];
+const aceProviders = [
+  '@adonisjs/lucid/providers/MigrationsProvider',
+  'adonis-acl/providers/CommandsProvider'
+];
 
 /*
 |--------------------------------------------------------------------------

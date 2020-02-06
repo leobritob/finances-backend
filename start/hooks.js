@@ -69,7 +69,6 @@ const validatorExtends = () => {
   };
 
   const uniqueDataValidator = async (data, field, message, args, get) => {
-    const value = get(data, field);
     const table = args[0];
     delete args[0];
 
@@ -100,9 +99,9 @@ const validatorExtends = () => {
       }
     });
 
-    row = await row.first();
+    const firtRow = await row.first();
 
-    if (row) throw message;
+    if (firtRow) throw message;
   };
 
   Validator.extend('exists', existsValidator);
