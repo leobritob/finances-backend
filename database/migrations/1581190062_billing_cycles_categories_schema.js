@@ -15,6 +15,14 @@ class BillingCyclesCategoriesSchema extends Schema {
         .index()
         .onDelete('CASCADE');
       table.string('name').notNullable();
+      table
+        .integer('company_id')
+        .notNullable()
+        .unsigned()
+        .references('id')
+        .inTable('companies')
+        .index()
+        .onDelete('cascade');
       table.timestamps();
     });
   }

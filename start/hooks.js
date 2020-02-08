@@ -69,6 +69,7 @@ const validatorExtends = () => {
   };
 
   const uniqueDataValidator = async (data, field, message, args, get) => {
+
     const table = args[0];
     delete args[0];
 
@@ -76,21 +77,21 @@ const validatorExtends = () => {
 
     const convertToPrimite = param => {
       switch (param.toLowerCase()) {
-      case 'true':
-        return true;
-      case 'false':
-        return false;
-      default:
-        return param;
+        case 'true':
+          return true;
+        case 'false':
+          return false;
+        default:
+          return param;
       }
     };
 
     args.forEach(column => {
-      if (column.indexOf('!=') >= 0) {
+      if (column.includes('!=')) {
         let c = column.split('!=');
 
         row.whereNot(c[0], convertToPrimite(c[1]));
-      } else if (column.indexOf('=') >= 0) {
+      } else if (column.includes('=')) {
         let c = column.split('=');
 
         row.where(c[0], convertToPrimite(c[1]));

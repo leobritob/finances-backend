@@ -15,7 +15,11 @@ class BillingCyclesType extends Model {
   }
 
   categories() {
-    return this.hasMany('BillingCyclesCategoryModel');
+    return this.hasMany('BillingCyclesCategoryModel', 'id', 'billing_cycles_type_id');
+  }
+
+  company() {
+    return this.hasMany('CompanyModel');
   }
 }
 

@@ -46,7 +46,7 @@ class CompanyController {
           'city',
           'uf',
           'country',
-          'logo'
+          'logo',
         ])
       );
   }
@@ -57,15 +57,33 @@ class CompanyController {
 
   async update({ params: { id }, request, response }) {
     const company = await Company.query()
-      .where('id', id)
+      .where({ id })
       .firstOrFail();
-    company.merge(request.all());
+
+    company.merge(
+      request.only([
+        'social_name',
+        'fantasy_name',
+        'cnpj',
+        'email',
+        'cellphone',
+        'telephone',
+        'street_name',
+        'street_number',
+        'district',
+        'city',
+        'uf',
+        'country',
+        'logo',
+      ])
+    );
 
     const saveCompany = await company.save();
     if (saveCompany) return company;
 
     return response.status(400).send({
-      message: 'Não foi atualizado porque não foi identificado mudanças no cadastro.'
+      message:
+        'Não foi atualizado porque não foi identificado mudanças no cadastro.',
     });
   }
 
@@ -74,7 +92,7 @@ class CompanyController {
     const companyDelete = company.delete();
     if (companyDelete) return response.status(204).send();
     return response.send(400).send({
-      message: 'Houve um erro ao remover o usuário'
+      message: 'Houve um erro ao remover o usuário',
     });
   }
 }

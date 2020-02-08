@@ -28,6 +28,14 @@ class BillingCyclesSchema extends Schema {
             1}-${dateNow.getDate()}`
         );
       table.string('description').nullable();
+      table
+        .integer('company_id')
+        .notNullable()
+        .unsigned()
+        .references('id')
+        .inTable('companies')
+        .index()
+        .onDelete('cascade');
       table.timestamps();
     });
   }
