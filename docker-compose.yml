@@ -33,7 +33,6 @@ services:
 
   finances_webserver:
     image: nginx:latest
-    # build: ./nginx
     container_name: finances_webserver
     depends_on:
       - finances_backend

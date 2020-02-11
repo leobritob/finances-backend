@@ -9,7 +9,9 @@
     "migration-run": "adonis migration:run --force",
     "prestart": "npm run make-env-file && npm run migration-run",
     "start": "node server.js",
-    "test": "node ace test"
+    "test": "node ace test",
+    "dev": "adonis serve --dev",
+    "docker:clean": "docker container stop $(docker ps -q) && docker container prune && docker volume prune"
   },
   "keywords": [
     "adonisjs",

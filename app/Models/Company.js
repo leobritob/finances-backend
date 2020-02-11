@@ -18,10 +18,6 @@ class Company extends Model {
     return this.belongsToMany('UserModel').pivotModel('CompaniesUserModel');
   }
 
-  billingCyclesTypes() {
-    return this.hasMany('BillingCyclesTypeModel');
-  }
-
   billingCyclesCategories() {
     return this.hasMany('BillingCyclesCategoryModel');
   }

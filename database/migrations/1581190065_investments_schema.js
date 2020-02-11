@@ -30,6 +30,14 @@ class InvestmentsSchema extends Schema {
         .date('due_date', { useTz: false })
         .nullable()
         .defaultTo(`${dateNow.getFullYear()}-${dateNow.getMonth() + 1}-${dateNow.getDate()}`);
+      table
+        .integer('company_id')
+        .notNullable()
+        .unsigned()
+        .references('id')
+        .inTable('companies')
+        .index()
+        .onDelete('cascade');
       table.timestamps();
     });
   }

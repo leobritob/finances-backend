@@ -15,7 +15,7 @@ class BillingCyclesCategory extends Model {
   }
 
   billingCyclesType() {
-    return this.belongsTo('BillingCyclesTypeModel');
+    return this.belongsTo('BillingCyclesTypeModel', 'id', 'billing_cycles_type_id');
   }
 
   company() {
