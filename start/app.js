@@ -62,7 +62,10 @@ const aliases = {
   InvestmentModel: 'App/Models/Investment',
   InvestmentsTypeModel: 'App/Models/InvestmentsType',
   CompanyModel: 'App/Models/Company',
-  CompaniesUserModel: 'App/Models/CompaniesUser'
+  CompaniesUserModel: 'App/Models/CompaniesUser',
+  CountryModel: 'App/Models/Country',
+  StateModel: 'App/Models/State',
+  CityModel: 'App/Models/City',
 };
 
 /*
