@@ -6,10 +6,17 @@ class StatesSchema extends Schema {
   up() {
     this.create('states', table => {
       table.increments();
-      table.string('name', 60);
-      table.string('uf', 2);
+      table.string('name', 255).notNullable();
+      table.string('uf', 2).notNullable();
       table.integer('ibge');
-      table.integer('country');
+      table
+        .integer('country_id')
+        .notNullable()
+        .unsigned()
+        .references('id')
+        .inTable('countries')
+        .index()
+        .onDelete('CASCADE');
       table.json('ddd');
       table.timestamps();
     });
