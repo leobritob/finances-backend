@@ -1,8 +1,9 @@
 'use strict';
 
-const CountryHook = (exports = module.exports = {});
 const { validateAll } = use('Validator');
 const ValidationException = use('App/Exceptions/ValidationException');
+
+const CountryHook = (exports = module.exports = {});
 
 CountryHook.validate = async modelInstance => {
   const rules = {
@@ -23,6 +24,5 @@ CountryHook.validate = async modelInstance => {
   };
 
   const validation = await validateAll(modelInstance.$attributes, rules, messages);
-
   if (validation.fails()) throw new ValidationException(validation.messages());
 };
