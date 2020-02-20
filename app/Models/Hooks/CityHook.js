@@ -2,4 +2,4 @@
 
 const CityHook = (exports = module.exports = {});
 
-CityHook.method = async modelInstance => {};
+CityHook.validate = async modelInstance => {};
