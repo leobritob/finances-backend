@@ -8,7 +8,7 @@ class CountriesSchema extends Schema {
       table.increments();
       table.string('name', 255).notNullable();
       table.string('name_translate', 255).notNullable();
-      table.string('initials', 2).notNullable();
+      table.string('initials', 2).nullable();
       table.integer('bacen').nullable();
       table.timestamps();
     });
