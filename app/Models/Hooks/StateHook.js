@@ -19,8 +19,8 @@ StateHook.validate = async modelInstance => {
     'uf.required': 'Por favor, informe a UF.',
     'uf.min': 'A versão traduzida do nome precisa ter no mínimo 2 caracteres.',
     'uf.max': 'A versão traduzida do nome atingiu limite máximo de 2 caracteres.',
-    'country_id:required': 'Por favor, informe o país.',
-    'country_id:existss': 'O país informado não existe.',
+    'country_id.required': 'Por favor, informe o país.',
+    'country_id.existss': 'O país informado não existe.',
   };
 
   const validation = await validateAll(modelInstance.$attributes, rules, messages);

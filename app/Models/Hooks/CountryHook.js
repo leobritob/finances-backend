@@ -19,10 +19,13 @@ CountryHook.validate = async modelInstance => {
     'name_translate.required': 'Por favor, informe a versão traduzida (pt-BR) do nome.',
     'name_translate.min': 'A versão traduzida do nome precisa ter no mínimo 2 caracteres.',
     'name_translate.max': 'A versão traduzida do nome atingiu limite máximo de 255 caracteres.',
-    'initials:min': 'As iniciais precisam ter no mínimo 2 caracteres',
-    'initials:max': 'As iniciais atingiram o limite máximo de 2 caracteres',
+    'initials.min': 'As iniciais precisam ter no mínimo 2 caracteres',
+    'initials.max': 'As iniciais atingiram o limite máximo de 2 caracteres',
   };
 
   const validation = await validateAll(modelInstance.$attributes, rules, messages);
-  if (validation.fails()) throw new ValidationException(validation.messages());
+  if (validation.fails()) {
+    console.log(JSON.stringify(validation.messages(), null, 2));
+    throw new ValidationException(validation.messages());
+  }
 };
