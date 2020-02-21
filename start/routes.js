@@ -99,4 +99,7 @@ Route.group(function() {
   Route.get('countries/:id', 'Api/V1/CountryController.show').middleware(['auth']);
   Route.put('countries/:id', 'Api/V1/CountryController.update').middleware(['auth']);
   Route.delete('countries/:id', 'Api/V1/CountryController.destroy').middleware(['auth']);
+
+  Route.get('customers', 'Api/V1/CustomerController.index').middleware(['auth']);
+  Route.post('customers', 'Api/V1/CustomerController.store').middleware(['auth']);
 }).prefix('api/v1');
