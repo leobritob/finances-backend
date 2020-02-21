@@ -1,13 +1,24 @@
 'use strict';
 
+/** @type {typeof import('@adonisjs/lucid/src/Factory')} */
+const Factory = use('Factory');
+/** @type {typeof import('../../app/Models/User')} */
 const User = use('UserModel');
+/** @type {typeof import('../../app/Models/Company')} */
 const Company = use('CompanyModel');
+/** @type {typeof import('../../app/Models/BillingCyclesType')} */
 const BillingCyclesType = use('BillingCyclesTypeModel');
+/** @type {typeof import('../../app/Models/InvestmentsType')} */
 const InvestmentsType = use('InvestmentsTypeModel');
+/** @type {typeof import('../../app/Models/BillingCyclesCategory')} */
 const BillingCyclesCategory = use('BillingCyclesCategoryModel');
+/** @type {typeof import('../../app/Models/Country')} */
 const CountryModel = use('CountryModel');
+/** @type {typeof import('../../app/Models/State')} */
 const StateModel = use('StateModel');
+/** @type {typeof import('../../app/Models/City')} */
 const CityModel = use('CityModel');
+
 const countries = require('./countries.json');
 const states = require('./states.json');
 const cities = require('./cities.json');
@@ -22,6 +33,7 @@ class DevelopmentSeeder {
     await this.createCountries();
     await this.createStates();
     await this.createCities();
+    await this.createCustomers();
   }
 
   async createUser() {
@@ -194,6 +206,10 @@ class DevelopmentSeeder {
 
   async createCities() {
     await CityModel.createMany(cities);
+  }
+
+  async createCustomers() {
+    await Factory.model('App/Models/Customer').createMany(5);
   }
 }
 
