@@ -9,12 +9,12 @@ class CustomersSchema extends Schema {
       table.string('first_name').notNullable();
       table.string('last_name').notNullable();
       table.date('birthday_date').nullable();
-      table.string('gender').notNullable();
-      table.string('profession').notNullable();
-      table.string('cellphone').notNullable();
-      table.string('phone').notNullable();
+      table.string('gender').nullable();
+      table.string('profession').nullable();
+      table.string('cellphone').nullable();
+      table.string('phone').nullable();
       table.string('cpf').notNullable();
-      table.string('rg').notNullable();
+      table.string('rg').nullable();
       table.string('street_name').nullable();
       table.string('street_number').nullable();
       table.string('district').nullable();
