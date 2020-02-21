@@ -101,5 +101,8 @@ Route.group(function() {
   Route.delete('countries/:id', 'Api/V1/CountryController.destroy').middleware(['auth']);
 
   Route.get('customers', 'Api/V1/CustomerController.index').middleware(['auth']);
-  Route.post('customers', 'Api/V1/CustomerController.store').middleware(['auth']);
+  Route.post('companies/:company_id/customers', 'Api/V1/CustomerController.store').middleware(['auth']);
+  Route.get('customers/:id', 'Api/V1/CustomerController.show').middleware(['auth']);
+  Route.put('customers/:id', 'Api/V1/CustomerController.update').middleware(['auth']);
+  Route.delete('customers/:id', 'Api/V1/CustomerController.destroy').middleware(['auth']);
 }).prefix('api/v1');
