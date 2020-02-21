@@ -67,7 +67,7 @@ const aliases = {
   StateModel: 'App/Models/State',
   CityModel: 'App/Models/City',
   CustomerModel: 'App/Models/Customer',
-  CompaniesCustomersModel: 'App/Models/Customer',
+  CompaniesCustomerModel: 'App/Models/CompaniesCustomer',
 };
 
 /*
