@@ -1,36 +1,29 @@
 'use strict';
 
+/** @type {typeof import('../../../../Models/Company')} */
 const Company = use('CompanyModel');
-const Database = use('Database');
 
 class CompanyController {
-  async index({ request, auth }) {
-    const query = request.all();
-    const page = query.page || 1;
-    const perPage = query.perPage || 20;
-
-    const queryCompaniesUsers = Database.table('companies_users AS cu')
-      .select('c.*')
-      .innerJoin('companies AS c', 'cu.company_id', 'c.id')
-      .where('cu.user_id', auth.user.id);
-
-    if (typeof query === 'object' && query.search) {
-      queryCompaniesUsers.whereRaw(
-        '(lower(c.fantasy_name) LIKE :search OR lower(c.social_name) LIKE :search OR c.cnpj LIKE :search)',
-        { search: `%${query.search.toLowerCase()}%` }
-      );
-    }
-
-    if (perPage === 'total') {
-      return queryCompaniesUsers;
-    }
-
-    return queryCompaniesUsers.paginate(page, perPage);
+  /**
+   * Get all companies
+   * @param {object} ctx.request
+   * @param {object} ctx.auth
+   * GET /companies
+   */
+  index({ request, auth }) {
+    const { page, perPage, search } = request.all();
+    return Company.findAll({ page, perPage, search, userId: auth.user.id });
   }
 
+  /**
+   * Store a new company
+   * @param {object} ctx.request
+   * @param {object} ctx.auth
+   * POST /companies
+   */
   async store({ request, auth }) {
     const user = await auth.getUser();
-    return await user
+    return user
       .companies()
       .create(
         request.only([
@@ -51,14 +44,28 @@ class CompanyController {
       );
   }
 
-  async show({ params: { id } }) {
-    return Company.findOrFail(id);
+  /**
+   * Get company by id
+   * @param {object} ctx.params
+   * @param {number} ctx.params.id
+   * @param {object} ctx.auth
+   * GET /companies/:id
+   */
+  show({ params: { id }, auth }) {
+    return Company.findById({ id, userId: auth.user.id });
   }
 
-  async update({ params: { id }, request, response }) {
-    const company = await Company.query()
-      .where({ id })
-      .firstOrFail();
+  /**
+   * Update a company by id
+   * @param {object} ctx.params
+   * @param {number} ctx.params.id
+   * @param {object} ctx.request
+   * @param {object} ctx.response
+   * @param {object} ctx.auth
+   * PUT /companies/:id
+   */
+  async update({ params: { id }, request, response, auth }) {
+    const company = await Company.findById({ id, userId: auth.user.id });
 
     company.merge(
       request.only([
@@ -78,22 +85,29 @@ class CompanyController {
       ])
     );
 
-    const saveCompany = await company.save();
-    if (saveCompany) return company;
+    if (await company.save()) {
+      return company;
+    }
 
-    return response.status(400).send({
-      message:
-        'Não foi atualizado porque não foi identificado mudanças no cadastro.',
-    });
+    return response.status(400).send({ message: 'Nenhuma mudança foi identificada no cadastro.' });
   }
 
-  async destroy({ params: { id }, response }) {
-    const company = await Company.findOrFail(id);
-    const companyDelete = company.delete();
-    if (companyDelete) return response.status(204).send();
-    return response.send(400).send({
-      message: 'Houve um erro ao remover o usuário',
-    });
+  /**
+   * Delete a company by id
+   * @param {object} ctx.params
+   * @param {number} ctx.params.id
+   * @param {object} ctx.response
+   * @param {object} ctx.auth
+   * DELETE /companies/:id
+   */
+  async destroy({ params: { id }, response, auth }) {
+    const company = await Company.findById({ id, userId: auth.user.id });
+
+    if (await company.delete()) {
+      return response.status(204).send();
+    }
+
+    return response.send(400).send({ message: 'Houve um erro ao remover o usuário' });
   }
 }
 
