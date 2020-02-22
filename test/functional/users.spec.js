@@ -110,7 +110,7 @@ test('update user details', async ({ client }) => {
   responseUpdateUser.assertJSONSubset({ first_name: 'admin', last_name: 'admin1' });
 });
 
-test('delete an user', async ({ client, assert }) => {
+test('delete an user', async ({ client }) => {
   const {
     body: { token },
   } = await client
@@ -126,5 +126,4 @@ test('delete an user', async ({ client, assert }) => {
     .header('Authorization', `Bearer ${token}`)
     .end();
   responseDeleteUser.assertStatus(204);
-  assert.isNull(responseDeleteUser.body);
 });
