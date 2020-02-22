@@ -26,16 +26,19 @@ class UserController {
     const save = await user.save();
     if (save) return user;
     return response.status(400).send({
-      message: 'Não foi atualizado porque não foi identificado mudanças no cadastro.'
+      message: 'Não foi atualizado porque não foi identificado mudanças no cadastro.',
     });
   }
 
   async destroy({ params: { id }, response }) {
     const user = await User.findOrFail(id);
-    const userDelete = user.delete();
-    if (userDelete) return response.status(204).send();
+
+    if (await user.delete()) {
+      return response.status(204).send();
+    }
+
     return response.status(400).send({
-      message: 'Houve um erro ao remover o usuário'
+      message: 'Houve um erro ao remover o usuário',
     });
   }
 }
