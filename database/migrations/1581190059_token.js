@@ -11,7 +11,9 @@ class TokensSchema extends Schema {
         .integer('user_id')
         .unsigned()
         .references('id')
-        .inTable('users');
+        .inTable('users')
+        .index()
+        .onDelete('CASCADE');
       table
         .string('token', 255)
         .notNullable()
