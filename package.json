@@ -34,6 +34,8 @@
     "@adonisjs/mail": "^3.0.9",
     "@adonisjs/validator": "^5.0.6",
     "@adonisjs/vow": "^1.0.17",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
     "adonis-acl": "^1.1.1",
     "adonis-lucid-filter": "^1.0.4",
     "date-fns": "^2.0.0-beta.3",
@@ -42,9 +44,15 @@
     "pg": "^7.11.0"
   },
   "devDependencies": {
-    "eslint": "^6.0.1"
+    "eslint": "^6.0.1",
+    "husky": "^4.2.3"
   },
   "autoload": {
     "App": "./app"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }
