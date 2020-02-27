@@ -1,25 +1,27 @@
 'use strict';
 
 /** @type {typeof import('../../../../Models/Company')} */
-const Company = use('CompanyModel');
+const CompanyModel = use('CompanyModel');
 
 class CompanyController {
   /**
    * Get all companies
-   * @param {object} ctx.request
-   * @param {object} ctx.auth
-   * GET /companies
+   * GET /api/v1/companies
+   *
+   * @param {Object} ctx.request
+   * @param {Object} ctx.auth
    */
   index({ request, auth }) {
     const { page, perPage, search } = request.all();
-    return Company.findAll({ page, perPage, search, userId: auth.user.id });
+    return CompanyModel.findAll({ page, perPage, search, userId: auth.user.id });
   }
 
   /**
    * Store a new company
-   * @param {object} ctx.request
-   * @param {object} ctx.auth
-   * POST /companies
+   * POST /api/v1/companies
+   *
+   * @param {Object} ctx.request
+   * @param {Object} ctx.auth
    */
   async store({ request, auth }) {
     const user = await auth.getUser();
@@ -46,26 +48,28 @@ class CompanyController {
 
   /**
    * Get company by id
-   * @param {object} ctx.params
+   * GET /api/v1/companies/:id
+   *
+   * @param {Object} ctx.params
    * @param {number} ctx.params.id
-   * @param {object} ctx.auth
-   * GET /companies/:id
+   * @param {Object} ctx.auth
    */
   show({ params: { id }, auth }) {
-    return Company.findById({ id, userId: auth.user.id });
+    return CompanyModel.findByIdOrFail({ id, userId: auth.user.id });
   }
 
   /**
    * Update a company by id
-   * @param {object} ctx.params
+   * PUT /api/v1/companies/:id
+   *
+   * @param {Object} ctx.params
    * @param {number} ctx.params.id
-   * @param {object} ctx.request
-   * @param {object} ctx.response
-   * @param {object} ctx.auth
-   * PUT /companies/:id
+   * @param {Object} ctx.request
+   * @param {Object} ctx.response
+   * @param {Object} ctx.auth
    */
   async update({ params: { id }, request, response, auth }) {
-    const company = await Company.findById({ id, userId: auth.user.id });
+    const company = await CompanyModel.findByIdOrFail({ id, userId: auth.user.id });
 
     company.merge(
       request.only([
@@ -94,14 +98,15 @@ class CompanyController {
 
   /**
    * Delete a company by id
-   * @param {object} ctx.params
+   * DELETE /api/v1/companies/:id
+   *
+   * @param {Object} ctx.params
    * @param {number} ctx.params.id
-   * @param {object} ctx.response
-   * @param {object} ctx.auth
-   * DELETE /companies/:id
+   * @param {Object} ctx.response
+   * @param {Object} ctx.auth
    */
   async destroy({ params: { id }, response, auth }) {
-    const company = await Company.findById({ id, userId: auth.user.id });
+    const company = await CompanyModel.findByIdOrFail({ id, userId: auth.user.id });
 
     if (await company.delete()) {
       return response.status(204).send();
