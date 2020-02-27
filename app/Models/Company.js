@@ -73,6 +73,7 @@ class Company extends Model {
    * Get company by id
    * @param {number} ctx.id - id of company
    * @param {number} ctx.userId - id of user
+   * @returns {Object} company details
    */
   static findByIdOrFail({ id, userId }) {
     const query = this.query()
