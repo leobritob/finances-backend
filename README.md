@@ -33,13 +33,7 @@ yarn # or npm install
 cp .env.example > .env
 ```
 
-4. Run the database of project
-
-```sh
-docker-compose up -d finances_database
-```
-
-5. Update the database credentials in the `.env` file
+4. Update the database credentials in the `.env` file
 
 ```sh
 DB_CONNECTION=pg
@@ -48,6 +42,12 @@ DB_PORT=3306
 DB_USER=root
 DB_PASSWORD=
 DB_DATABASE=
+```
+
+5. Run the database of project
+
+```sh
+docker-compose up -d finances_database
 ```
 
 6. Run server
