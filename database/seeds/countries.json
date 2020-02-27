@@ -1,0 +1,1497 @@
+[
+  {
+    "name": "Brazil",
+    "name_translate": "Brasil",
+    "initials": "BR",
+    "bacen": 1058
+  },
+  {
+    "name": "Afghanistan",
+    "name_translate": "Afeganistão",
+    "initials": "AF",
+    "bacen": 132
+  },
+  {
+    "name": "Albania",
+    "name_translate": "Albânia, Republica da",
+    "initials": "AL",
+    "bacen": 175
+  },
+  {
+    "name": "Algeria",
+    "name_translate": "Argélia",
+    "initials": "DZ",
+    "bacen": 590
+  },
+  {
+    "name": "American Samoa",
+    "name_translate": "Samoa Americana",
+    "initials": "AS",
+    "bacen": 6912
+  },
+  {
+    "name": "Andorra",
+    "name_translate": "Andorra",
+    "initials": "AD",
+    "bacen": 370
+  },
+  {
+    "name": "Angola",
+    "name_translate": "Angola",
+    "initials": "AO",
+    "bacen": 400
+  },
+  {
+    "name": "Anguilla",
+    "name_translate": "Anguilla",
+    "initials": "AI",
+    "bacen": 418
+  },
+  {
+    "name": "Antarctica",
+    "name_translate": "Antártida",
+    "initials": "AQ",
+    "bacen": 3596
+  },
+  {
+    "name": "Antigua and Barbuda",
+    "name_translate": "Antigua e Barbuda",
+    "initials": "AG",
+    "bacen": 434
+  },
+  {
+    "name": "Argentina",
+    "name_translate": "Argentina",
+    "initials": "AR",
+    "bacen": 639
+  },
+  {
+    "name": "Armenia",
+    "name_translate": "Armênia, Republica da",
+    "initials": "AM",
+    "bacen": 647
+  },
+  {
+    "name": "Aruba",
+    "name_translate": "Aruba",
+    "initials": "AW",
+    "bacen": 655
+  },
+  {
+    "name": "Australia",
+    "name_translate": "Austrália",
+    "initials": "AU",
+    "bacen": 698
+  },
+  {
+    "name": "Austria",
+    "name_translate": "Áustria",
+    "initials": "AT",
+    "bacen": 728
+  },
+  {
+    "name": "Azerbaijan",
+    "name_translate": "Azerbaijão, Republica do",
+    "initials": "AZ",
+    "bacen": 736
+  },
+  {
+    "name": "Bahamas",
+    "name_translate": "Bahamas, Ilhas",
+    "initials": "BS",
+    "bacen": 779
+  },
+  {
+    "name": "Bahrain",
+    "name_translate": "Bahrein, Ilhas",
+    "initials": "BH",
+    "bacen": 809
+  },
+  {
+    "name": "Bangladesh",
+    "name_translate": "Bangladesh",
+    "initials": "BD",
+    "bacen": 817
+  },
+  {
+    "name": "Barbados",
+    "name_translate": "Barbados",
+    "initials": "BB",
+    "bacen": 833
+  },
+  {
+    "name": "Belarus",
+    "name_translate": "Belarus, Republica da",
+    "initials": "BY",
+    "bacen": 850
+  },
+  {
+    "name": "Belgium",
+    "name_translate": "Bélgica",
+    "initials": "BE",
+    "bacen": 876
+  },
+  {
+    "name": "Belize",
+    "name_translate": "Belize",
+    "initials": "BZ",
+    "bacen": 884
+  },
+  {
+    "name": "Benin",
+    "name_translate": "Benin",
+    "initials": "BJ",
+    "bacen": 2291
+  },
+  {
+    "name": "Bermuda",
+    "name_translate": "Bermudas",
+    "initials": "BM",
+    "bacen": 906
+  },
+  {
+    "name": "Bhutan",
+    "name_translate": "Butão",
+    "initials": "BT",
+    "bacen": 1198
+  },
+  {
+    "name": "Bolivia",
+    "name_translate": "Bolívia",
+    "initials": "BO",
+    "bacen": 973
+  },
+  {
+    "name": "Bosnia and Herzegowina",
+    "name_translate": "Bósnia-herzegovina (Republica da)",
+    "initials": "BA",
+    "bacen": 981
+  },
+  {
+    "name": "Botswana",
+    "name_translate": "Botsuana",
+    "initials": "BW",
+    "bacen": 1015
+  },
+  {
+    "name": "Bouvet Island",
+    "name_translate": "Bouvet, Ilha",
+    "initials": "BV",
+    "bacen": 1023
+  },
+  {
+    "name": "British Indian Ocean Territory",
+    "name_translate": "Território Britânico do Oceano Indico",
+    "initials": "IO",
+    "bacen": 7820
+  },
+  {
+    "name": "Brunei Darussalam",
+    "name_translate": "Brunei",
+    "initials": "BN",
+    "bacen": 1082
+  },
+  {
+    "name": "Bulgaria",
+    "name_translate": "Bulgária, Republica da",
+    "initials": "BG",
+    "bacen": 1112
+  },
+  {
+    "name": "Burkina Faso",
+    "name_translate": "Burkina Faso",
+    "initials": "BF",
+    "bacen": 310
+  },
+  {
+    "name": "Burundi",
+    "name_translate": "Burundi",
+    "initials": "BI",
+    "bacen": 1155
+  },
+  {
+    "name": "Cambodia",
+    "name_translate": "Camboja",
+    "initials": "KH",
+    "bacen": 1414
+  },
+  {
+    "name": "Cameroon",
+    "name_translate": "Camarões",
+    "initials": "CM",
+    "bacen": 1457
+  },
+  {
+    "name": "Canada",
+    "name_translate": "Canada",
+    "initials": "CA",
+    "bacen": 1490
+  },
+  {
+    "name": "Cape Verde",
+    "name_translate": "Cabo Verde, Republica de",
+    "initials": "CV",
+    "bacen": 1279
+  },
+  {
+    "name": "Cayman Islands",
+    "name_translate": "Cayman, Ilhas",
+    "initials": "KY",
+    "bacen": 1376
+  },
+  {
+    "name": "Central African Republic",
+    "name_translate": "Republica Centro-Africana",
+    "initials": "CF",
+    "bacen": 6408
+  },
+  {
+    "name": "Chad",
+    "name_translate": "Chade",
+    "initials": "TD",
+    "bacen": 7889
+  },
+  {
+    "name": "Chile",
+    "name_translate": "Chile",
+    "initials": "CL",
+    "bacen": 1589
+  },
+  {
+    "name": "China",
+    "name_translate": "China, Republica Popular",
+    "initials": "CN",
+    "bacen": 1600
+  },
+  {
+    "name": "Christmas Island",
+    "name_translate": "Christmas, Ilha (Navidad)",
+    "initials": "CX",
+    "bacen": 5118
+  },
+  {
+    "name": "Cocos (Keeling) Islands",
+    "name_translate": "Cocos (Keeling), Ilhas",
+    "initials": "CC",
+    "bacen": 1651
+  },
+  {
+    "name": "Colombia",
+    "name_translate": "Colômbia",
+    "initials": "CO",
+    "bacen": 1694
+  },
+  {
+    "name": "Comoros",
+    "name_translate": "Comores, Ilhas",
+    "initials": "KM",
+    "bacen": 1732
+  },
+  {
+    "name": "Congo",
+    "name_translate": "Congo",
+    "initials": "CG",
+    "bacen": 1775
+  },
+  {
+    "name": "Congo, the Democratic Republic of the",
+    "name_translate": "Congo, Republica Democrática do",
+    "initials": "CD",
+    "bacen": 8885
+  },
+  {
+    "name": "Cook Islands",
+    "name_translate": "Cook, Ilhas",
+    "initials": "CK",
+    "bacen": 1830
+  },
+  {
+    "name": "Costa Rica",
+    "name_translate": "Costa Rica",
+    "initials": "CR",
+    "bacen": 1961
+  },
+  {
+    "name": "Cote d`Ivoire",
+    "name_translate": "Costa do Marfim",
+    "initials": "CI",
+    "bacen": 1937
+  },
+  {
+    "name": "Croatia (Hrvatska)",
+    "name_translate": "Croácia (Republica da)",
+    "initials": "HR",
+    "bacen": 1953
+  },
+  { "name": "Cuba", "name_translate": "Cuba", "initials": "CU", "bacen": 1996 },
+  {
+    "name": "Cyprus",
+    "name_translate": "Chipre",
+    "initials": "CY",
+    "bacen": 1635
+  },
+  {
+    "name": "Czech Republic",
+    "name_translate": "Tcheca, Republica",
+    "initials": "CZ",
+    "bacen": 7919
+  },
+  {
+    "name": "Denmark",
+    "name_translate": "Dinamarca",
+    "initials": "DK",
+    "bacen": 2321
+  },
+  {
+    "name": "Djibouti",
+    "name_translate": "Djibuti",
+    "initials": "DJ",
+    "bacen": 7838
+  },
+  {
+    "name": "Dominica",
+    "name_translate": "Dominica, Ilha",
+    "initials": "DM",
+    "bacen": 2356
+  },
+  {
+    "name": "Dominican Republic",
+    "name_translate": "Republica Dominicana",
+    "initials": "DO",
+    "bacen": 6475
+  },
+  {
+    "name": "East Timor",
+    "name_translate": "Timor Leste",
+    "initials": "TL",
+    "bacen": 7951
+  },
+  {
+    "name": "Ecuador",
+    "name_translate": "Equador",
+    "initials": "EC",
+    "bacen": 2399
+  },
+  {
+    "name": "Egypt",
+    "name_translate": "Egito",
+    "initials": "EG",
+    "bacen": 2402
+  },
+  {
+    "name": "El Salvador",
+    "name_translate": "El Salvador",
+    "initials": "SV",
+    "bacen": 6874
+  },
+  {
+    "name": "Equatorial Guinea",
+    "name_translate": "Guine-Equatorial",
+    "initials": "GQ",
+    "bacen": 3310
+  },
+  {
+    "name": "Eritrea",
+    "name_translate": "Eritreia",
+    "initials": "ER",
+    "bacen": 2437
+  },
+  {
+    "name": "Estonia",
+    "name_translate": "Estônia, Republica da",
+    "initials": "EE",
+    "bacen": 2518
+  },
+  {
+    "name": "Ethiopia",
+    "name_translate": "Etiópia",
+    "initials": "ET",
+    "bacen": 2534
+  },
+  {
+    "name": "Falkland Islands (Malvinas)",
+    "name_translate": "Falkland (Ilhas Malvinas)",
+    "initials": "FK",
+    "bacen": 2550
+  },
+  {
+    "name": "Faroe Islands",
+    "name_translate": "Feroe, Ilhas",
+    "initials": "FO",
+    "bacen": 2593
+  },
+  { "name": "Fiji", "name_translate": "Fiji", "initials": "FJ", "bacen": 8702 },
+  {
+    "name": "Finland",
+    "name_translate": "Finlândia",
+    "initials": "FI",
+    "bacen": 2712
+  },
+  {
+    "name": "France",
+    "name_translate": "Franca",
+    "initials": "FR",
+    "bacen": 2755
+  },
+  {
+    "name": "French Guiana",
+    "name_translate": "Guiana francesa",
+    "initials": "GF",
+    "bacen": 3255
+  },
+  {
+    "name": "French Polynesia",
+    "name_translate": "Polinésia Francesa",
+    "initials": "PF",
+    "bacen": 5991
+  },
+  {
+    "name": "French Southern Territories",
+    "name_translate": "Terras Austrais e Antárticas Francesas",
+    "initials": "TF",
+    "bacen": 3607
+  },
+  {
+    "name": "Gabon",
+    "name_translate": "Gabão",
+    "initials": "GA",
+    "bacen": 2810
+  },
+  {
+    "name": "Gambia",
+    "name_translate": "Gambia",
+    "initials": "GM",
+    "bacen": 2852
+  },
+  {
+    "name": "Georgia",
+    "name_translate": "Georgia, Republica da",
+    "initials": "GE",
+    "bacen": 2917
+  },
+  {
+    "name": "Germany",
+    "name_translate": "Alemanha",
+    "initials": "DE",
+    "bacen": 230
+  },
+  {
+    "name": "Ghana",
+    "name_translate": "Gana",
+    "initials": "GH",
+    "bacen": 2895
+  },
+  {
+    "name": "Gibraltar",
+    "name_translate": "Gibraltar",
+    "initials": "GI",
+    "bacen": 2933
+  },
+  {
+    "name": "Greece",
+    "name_translate": "Grécia",
+    "initials": "GR",
+    "bacen": 3018
+  },
+  {
+    "name": "Greenland",
+    "name_translate": "Groenlândia",
+    "initials": "GL",
+    "bacen": 3050
+  },
+  {
+    "name": "Grenada",
+    "name_translate": "Granada",
+    "initials": "GD",
+    "bacen": 2976
+  },
+  {
+    "name": "Guadeloupe",
+    "name_translate": "Guadalupe",
+    "initials": "GP",
+    "bacen": 3093
+  },
+  { "name": "Guam", "name_translate": "Guam", "initials": "GU", "bacen": 3131 },
+  {
+    "name": "Guatemala",
+    "name_translate": "Guatemala",
+    "initials": "GT",
+    "bacen": 3174
+  },
+  {
+    "name": "Guinea",
+    "name_translate": "Guine",
+    "initials": "GN",
+    "bacen": 3298
+  },
+  {
+    "name": "Guinea-Bissau",
+    "name_translate": "Guine-Bissau",
+    "initials": "GW",
+    "bacen": 3344
+  },
+  {
+    "name": "Guyana",
+    "name_translate": "Guiana",
+    "initials": "GY",
+    "bacen": 3379
+  },
+  {
+    "name": "Haiti",
+    "name_translate": "Haiti",
+    "initials": "HT",
+    "bacen": 3417
+  },
+  {
+    "name": "Heard and Mc Donald Islands",
+    "name_translate": "Ilha Heard e Ilhas McDonald",
+    "initials": "HM",
+    "bacen": 3603
+  },
+  {
+    "name": "Holy See (Vatican City State)",
+    "name_translate": "Vaticano, Estado da Cidade do",
+    "initials": "VA",
+    "bacen": 8486
+  },
+  {
+    "name": "Honduras",
+    "name_translate": "Honduras",
+    "initials": "HN",
+    "bacen": 3450
+  },
+  {
+    "name": "Hong Kong",
+    "name_translate": "Hong Kong",
+    "initials": "HK",
+    "bacen": 3514
+  },
+  {
+    "name": "Hungary",
+    "name_translate": "Hungria, Republica da",
+    "initials": "HU",
+    "bacen": 3557
+  },
+  {
+    "name": "Iceland",
+    "name_translate": "Islândia",
+    "initials": "IS",
+    "bacen": 3794
+  },
+  {
+    "name": "India",
+    "name_translate": "Índia",
+    "initials": "IN",
+    "bacen": 3611
+  },
+  {
+    "name": "Indonesia",
+    "name_translate": "Indonésia",
+    "initials": "ID",
+    "bacen": 3654
+  },
+  {
+    "name": "Iran (Islamic Republic of)",
+    "name_translate": "Ira, Republica Islâmica do",
+    "initials": "IR",
+    "bacen": 3727
+  },
+  {
+    "name": "Iraq",
+    "name_translate": "Iraque",
+    "initials": "IQ",
+    "bacen": 3697
+  },
+  {
+    "name": "Ireland",
+    "name_translate": "Irlanda",
+    "initials": "IE",
+    "bacen": 3751
+  },
+  {
+    "name": "Israel",
+    "name_translate": "Israel",
+    "initials": "IL",
+    "bacen": 3832
+  },
+  {
+    "name": "Italy",
+    "name_translate": "Itália",
+    "initials": "IT",
+    "bacen": 3867
+  },
+  {
+    "name": "Jamaica",
+    "name_translate": "Jamaica",
+    "initials": "JM",
+    "bacen": 3913
+  },
+  {
+    "name": "Japan",
+    "name_translate": "Japão",
+    "initials": "JP",
+    "bacen": 3999
+  },
+  {
+    "name": "Jordan",
+    "name_translate": "Jordânia",
+    "initials": "JO",
+    "bacen": 4030
+  },
+  {
+    "name": "Kazakhstan",
+    "name_translate": "Cazaquistão, Republica do",
+    "initials": "KZ",
+    "bacen": 1538
+  },
+  {
+    "name": "Kenya",
+    "name_translate": "Quênia",
+    "initials": "KE",
+    "bacen": 6238
+  },
+  {
+    "name": "Kiribati",
+    "name_translate": "Kiribati",
+    "initials": "KI",
+    "bacen": 4111
+  },
+  {
+    "name": "Korea, Democratic People`s Republic of",
+    "name_translate": "Coreia, Republica Popular Democrática da",
+    "initials": "KP",
+    "bacen": 1872
+  },
+  {
+    "name": "Korea, Republic of",
+    "name_translate": "Coreia, Republica da",
+    "initials": "KR",
+    "bacen": 1902
+  },
+  {
+    "name": "Kuwait",
+    "name_translate": "Kuwait",
+    "initials": "KW",
+    "bacen": 1988
+  },
+  {
+    "name": "Kyrgyzstan",
+    "name_translate": "Quirguiz, Republica",
+    "initials": "KG",
+    "bacen": 6254
+  },
+  {
+    "name": "Lao People`s Democratic Republic",
+    "name_translate": "Laos, Republica Popular Democrática do",
+    "initials": "LA",
+    "bacen": 4200
+  },
+  {
+    "name": "Latvia",
+    "name_translate": "Letônia, Republica da",
+    "initials": "LV",
+    "bacen": 4278
+  },
+  {
+    "name": "Lebanon",
+    "name_translate": "Líbano",
+    "initials": "LB",
+    "bacen": 4316
+  },
+  {
+    "name": "Lesotho",
+    "name_translate": "Lesoto",
+    "initials": "LS",
+    "bacen": 4260
+  },
+  {
+    "name": "Liberia",
+    "name_translate": "Libéria",
+    "initials": "LR",
+    "bacen": 4340
+  },
+  {
+    "name": "Libyan Arab Jamahiriya",
+    "name_translate": "Líbia",
+    "initials": "LY",
+    "bacen": 4383
+  },
+  {
+    "name": "Liechtenstein",
+    "name_translate": "Liechtenstein",
+    "initials": "LI",
+    "bacen": 4405
+  },
+  {
+    "name": "Lithuania",
+    "name_translate": "Lituânia, Republica da",
+    "initials": "LT",
+    "bacen": 4421
+  },
+  {
+    "name": "Luxembourg",
+    "name_translate": "Luxemburgo",
+    "initials": "LU",
+    "bacen": 4456
+  },
+  {
+    "name": "Macau",
+    "name_translate": "Macau",
+    "initials": "MO",
+    "bacen": 4472
+  },
+  {
+    "name": "North Macedonia",
+    "name_translate": "Macedônia do Norte",
+    "initials": "MK",
+    "bacen": 4499
+  },
+  {
+    "name": "Madagascar",
+    "name_translate": "Madagascar",
+    "initials": "MG",
+    "bacen": 4502
+  },
+  {
+    "name": "Malawi",
+    "name_translate": "Malavi",
+    "initials": "MW",
+    "bacen": 4588
+  },
+  {
+    "name": "Malaysia",
+    "name_translate": "Malásia",
+    "initials": "MY",
+    "bacen": 4553
+  },
+  {
+    "name": "Maldives",
+    "name_translate": "Maldivas",
+    "initials": "MV",
+    "bacen": 4618
+  },
+  { "name": "Mali", "name_translate": "Mali", "initials": "ML", "bacen": 4642 },
+  {
+    "name": "Malta",
+    "name_translate": "Malta",
+    "initials": "MT",
+    "bacen": 4677
+  },
+  {
+    "name": "Marshall Islands",
+    "name_translate": "Marshall, Ilhas",
+    "initials": "MH",
+    "bacen": 4766
+  },
+  {
+    "name": "Martinique",
+    "name_translate": "Martinica",
+    "initials": "MQ",
+    "bacen": 4774
+  },
+  {
+    "name": "Mauritania",
+    "name_translate": "Mauritânia",
+    "initials": "MR",
+    "bacen": 4880
+  },
+  {
+    "name": "Mauritius",
+    "name_translate": "Mauricio",
+    "initials": "MU",
+    "bacen": 4855
+  },
+  {
+    "name": "Mayotte",
+    "name_translate": "Mayotte (Ilhas Francesas)",
+    "initials": "YT",
+    "bacen": 4885
+  },
+  {
+    "name": "Mexico",
+    "name_translate": "México",
+    "initials": "MX",
+    "bacen": 4936
+  },
+  {
+    "name": "Micronesia, Federated States of",
+    "name_translate": "Micronesia",
+    "initials": "FM",
+    "bacen": 4995
+  },
+  {
+    "name": "Moldova, Republic of",
+    "name_translate": "Moldávia, Republica da",
+    "initials": "MD",
+    "bacen": 4944
+  },
+  {
+    "name": "Monaco",
+    "name_translate": "Mônaco",
+    "initials": "MC",
+    "bacen": 4952
+  },
+  {
+    "name": "Mongolia",
+    "name_translate": "Mongólia",
+    "initials": "MN",
+    "bacen": 4979
+  },
+  {
+    "name": "Montserrat",
+    "name_translate": "Montserrat, Ilhas",
+    "initials": "MS",
+    "bacen": 5010
+  },
+  {
+    "name": "Morocco",
+    "name_translate": "Marrocos",
+    "initials": "MA",
+    "bacen": 4740
+  },
+  {
+    "name": "Mozambique",
+    "name_translate": "Moçambique",
+    "initials": "MZ",
+    "bacen": 5053
+  },
+  {
+    "name": "Myanmar",
+    "name_translate": "Mianmar (Birmânia)",
+    "initials": "MM",
+    "bacen": 930
+  },
+  {
+    "name": "Namibia",
+    "name_translate": "Namíbia",
+    "initials": "NA",
+    "bacen": 5070
+  },
+  {
+    "name": "Nauru",
+    "name_translate": "Nauru",
+    "initials": "NR",
+    "bacen": 5088
+  },
+  {
+    "name": "Nepal",
+    "name_translate": "Nepal",
+    "initials": "NP",
+    "bacen": 5177
+  },
+  {
+    "name": "Netherlands",
+    "name_translate": "Países Baixos (Holanda)",
+    "initials": "NL",
+    "bacen": 5738
+  },
+  {
+    "name": "New Caledonia",
+    "name_translate": "Nova Caledonia",
+    "initials": "NC",
+    "bacen": 5428
+  },
+  {
+    "name": "New Zealand",
+    "name_translate": "Nova Zelândia",
+    "initials": "NZ",
+    "bacen": 5487
+  },
+  {
+    "name": "Nicaragua",
+    "name_translate": "Nicarágua",
+    "initials": "NI",
+    "bacen": 5215
+  },
+  {
+    "name": "Niger",
+    "name_translate": "Níger",
+    "initials": "NE",
+    "bacen": 5258
+  },
+  {
+    "name": "Nigeria",
+    "name_translate": "Nigéria",
+    "initials": "NG",
+    "bacen": 5282
+  },
+  {
+    "name": "Niue",
+    "name_translate": "Niue, Ilha",
+    "initials": "NU",
+    "bacen": 5312
+  },
+  {
+    "name": "Norfolk Island",
+    "name_translate": "Norfolk, Ilha",
+    "initials": "NF",
+    "bacen": 5355
+  },
+  {
+    "name": "Northern Mariana Islands",
+    "name_translate": "Marianas do Norte",
+    "initials": "MP",
+    "bacen": 4723
+  },
+  {
+    "name": "Norway",
+    "name_translate": "Noruega",
+    "initials": "NO",
+    "bacen": 5380
+  },
+  { "name": "Oman", "name_translate": "Oma", "initials": "OM", "bacen": 5568 },
+  {
+    "name": "Pakistan",
+    "name_translate": "Paquistão",
+    "initials": "PK",
+    "bacen": 5762
+  },
+  {
+    "name": "Palau",
+    "name_translate": "Palau",
+    "initials": "PW",
+    "bacen": 5754
+  },
+  {
+    "name": "Panama",
+    "name_translate": "Panamá",
+    "initials": "PA",
+    "bacen": 5800
+  },
+  {
+    "name": "Papua New Guinea",
+    "name_translate": "Papua Nova Guine",
+    "initials": "PG",
+    "bacen": 5452
+  },
+  {
+    "name": "Paraguay",
+    "name_translate": "Paraguai",
+    "initials": "PY",
+    "bacen": 5860
+  },
+  { "name": "Peru", "name_translate": "Peru", "initials": "PE", "bacen": 5894 },
+  {
+    "name": "Philippines",
+    "name_translate": "Filipinas",
+    "initials": "PH",
+    "bacen": 2674
+  },
+  {
+    "name": "Pitcairn",
+    "name_translate": "Pitcairn, Ilha",
+    "initials": "PN",
+    "bacen": 5932
+  },
+  {
+    "name": "Poland",
+    "name_translate": "Polônia, Republica da",
+    "initials": "PL",
+    "bacen": 6033
+  },
+  {
+    "name": "Portugal",
+    "name_translate": "Portugal",
+    "initials": "PT",
+    "bacen": 6076
+  },
+  {
+    "name": "Puerto Rico",
+    "name_translate": "Porto Rico",
+    "initials": "PR",
+    "bacen": 6114
+  },
+  {
+    "name": "Qatar",
+    "name_translate": "Catar",
+    "initials": "QA",
+    "bacen": 1546
+  },
+  {
+    "name": "Reunion",
+    "name_translate": "Reunião, Ilha",
+    "initials": "RE",
+    "bacen": 6602
+  },
+  {
+    "name": "Romania",
+    "name_translate": "Romênia",
+    "initials": "RO",
+    "bacen": 6700
+  },
+  {
+    "name": "Russian Federation",
+    "name_translate": "Rússia, Federação da",
+    "initials": "RU",
+    "bacen": 6769
+  },
+  {
+    "name": "Rwanda",
+    "name_translate": "Ruanda",
+    "initials": "RW",
+    "bacen": 6750
+  },
+  {
+    "name": "Saint Kitts and Nevis",
+    "name_translate": "São Cristovão e Neves, Ilhas",
+    "initials": "KN",
+    "bacen": 6955
+  },
+  {
+    "name": "Saint LUCIA",
+    "name_translate": "Santa Lucia",
+    "initials": "LC",
+    "bacen": 7153
+  },
+  {
+    "name": "Saint Vincent and the Grenadines",
+    "name_translate": "São Vicente e Granadinas",
+    "initials": "VC",
+    "bacen": 7056
+  },
+  {
+    "name": "Samoa",
+    "name_translate": "Samoa",
+    "initials": "WS",
+    "bacen": 6904
+  },
+  {
+    "name": "San Marino",
+    "name_translate": "San Marino",
+    "initials": "SM",
+    "bacen": 6971
+  },
+  {
+    "name": "Sao Tome and Principe",
+    "name_translate": "São Tome e Príncipe, Ilhas",
+    "initials": "ST",
+    "bacen": 7200
+  },
+  {
+    "name": "Saudi Arabia",
+    "name_translate": "Arábia Saudita",
+    "initials": "SA",
+    "bacen": 531
+  },
+  {
+    "name": "Senegal",
+    "name_translate": "Senegal",
+    "initials": "SN",
+    "bacen": 7285
+  },
+  {
+    "name": "Seychelles",
+    "name_translate": "Seychelles",
+    "initials": "SC",
+    "bacen": 7315
+  },
+  {
+    "name": "Sierra Leone",
+    "name_translate": "Serra Leoa",
+    "initials": "SL",
+    "bacen": 7358
+  },
+  {
+    "name": "Singapore",
+    "name_translate": "Cingapura",
+    "initials": "SG",
+    "bacen": 7412
+  },
+  {
+    "name": "Slovakia (Slovak Republic)",
+    "name_translate": "Eslovaca, Republica",
+    "initials": "SK",
+    "bacen": 2470
+  },
+  {
+    "name": "Slovenia",
+    "name_translate": "Eslovênia, Republica da",
+    "initials": "SI",
+    "bacen": 2461
+  },
+  {
+    "name": "Solomon Islands",
+    "name_translate": "Salomão, Ilhas",
+    "initials": "SB",
+    "bacen": 6777
+  },
+  {
+    "name": "Somalia",
+    "name_translate": "Somalia",
+    "initials": "SO",
+    "bacen": 7480
+  },
+  {
+    "name": "South Africa",
+    "name_translate": "África do Sul",
+    "initials": "ZA",
+    "bacen": 7560
+  },
+  {
+    "name": "South Georgia and the South Sandwich Islands",
+    "name_translate": "Ilhas Geórgia do Sul e Sandwich do Sul",
+    "initials": "GS",
+    "bacen": 2925
+  },
+  {
+    "name": "Spain",
+    "name_translate": "Espanha",
+    "initials": "ES",
+    "bacen": 2453
+  },
+  {
+    "name": "Sri Lanka",
+    "name_translate": "Sri Lanka",
+    "initials": "LK",
+    "bacen": 7501
+  },
+  {
+    "name": "St. Helena",
+    "name_translate": "Santa Helena",
+    "initials": "SH",
+    "bacen": 7102
+  },
+  {
+    "name": "St. Pierre and Miquelon",
+    "name_translate": "São Pedro e Miquelon",
+    "initials": "PM",
+    "bacen": 7005
+  },
+  {
+    "name": "Sudan",
+    "name_translate": "Sudão",
+    "initials": "SD",
+    "bacen": 7595
+  },
+  {
+    "name": "Suriname",
+    "name_translate": "Suriname",
+    "initials": "SR",
+    "bacen": 7706
+  },
+  {
+    "name": "Svalbard and Jan Mayen Islands",
+    "name_translate": "Svalbard e Jan Mayen",
+    "initials": "SJ",
+    "bacen": 7552
+  },
+  {
+    "name": "Swaziland",
+    "name_translate": "Eswatini",
+    "initials": "SZ",
+    "bacen": 7544
+  },
+  {
+    "name": "Sweden",
+    "name_translate": "Suécia",
+    "initials": "SE",
+    "bacen": 7641
+  },
+  {
+    "name": "Switzerland",
+    "name_translate": "Suíça",
+    "initials": "CH",
+    "bacen": 7676
+  },
+  {
+    "name": "Syrian Arab Republic",
+    "name_translate": "Síria, Republica Árabe da",
+    "initials": "SY",
+    "bacen": 7447
+  },
+  {
+    "name": "Taiwan, Province of China",
+    "name_translate": "Formosa (Taiwan)",
+    "initials": "TW",
+    "bacen": 1619
+  },
+  {
+    "name": "Tajikistan",
+    "name_translate": "Tadjiquistao, Republica do",
+    "initials": "TJ",
+    "bacen": 7722
+  },
+  {
+    "name": "Tanzania, United Republic of",
+    "name_translate": "Tanzânia, Republica Unida da",
+    "initials": "TZ",
+    "bacen": 7803
+  },
+  {
+    "name": "Thailand",
+    "name_translate": "Tailândia",
+    "initials": "TH",
+    "bacen": 7765
+  },
+  { "name": "Togo", "name_translate": "Togo", "initials": "TG", "bacen": 8001 },
+  {
+    "name": "Tokelau",
+    "name_translate": "Toquelau, Ilhas",
+    "initials": "TK",
+    "bacen": 8052
+  },
+  {
+    "name": "Tonga",
+    "name_translate": "Tonga",
+    "initials": "TO",
+    "bacen": 8109
+  },
+  {
+    "name": "Trinidad and Tobago",
+    "name_translate": "Trinidad e Tobago",
+    "initials": "TT",
+    "bacen": 8150
+  },
+  {
+    "name": "Tunisia",
+    "name_translate": "Tunísia",
+    "initials": "TN",
+    "bacen": 8206
+  },
+  {
+    "name": "Turkey",
+    "name_translate": "Turquia",
+    "initials": "TR",
+    "bacen": 8273
+  },
+  {
+    "name": "Turkmenistan",
+    "name_translate": "Turcomenistão, Republica do",
+    "initials": "TM",
+    "bacen": 8249
+  },
+  {
+    "name": "Turks and Caicos Islands",
+    "name_translate": "Turcas e Caicos, Ilhas",
+    "initials": "TC",
+    "bacen": 8230
+  },
+  {
+    "name": "Tuvalu",
+    "name_translate": "Tuvalu",
+    "initials": "TV",
+    "bacen": 8281
+  },
+  {
+    "name": "Uganda",
+    "name_translate": "Uganda",
+    "initials": "UG",
+    "bacen": 8338
+  },
+  {
+    "name": "Ukraine",
+    "name_translate": "Ucrânia",
+    "initials": "UA",
+    "bacen": 8311
+  },
+  {
+    "name": "United Arab Emirates",
+    "name_translate": "Emirados Árabes Unidos",
+    "initials": "AE",
+    "bacen": 2445
+  },
+  {
+    "name": "United Kingdom",
+    "name_translate": "Reino Unido",
+    "initials": "GB",
+    "bacen": 6289
+  },
+  {
+    "name": "United States",
+    "name_translate": "Estados Unidos",
+    "initials": "US",
+    "bacen": 2496
+  },
+  {
+    "name": "United States Minor Outlying Islands",
+    "name_translate": "Ilhas Menores Distantes dos Estados Unidos",
+    "initials": "UM",
+    "bacen": 18664
+  },
+  {
+    "name": "Uruguay",
+    "name_translate": "Uruguai",
+    "initials": "UY",
+    "bacen": 8451
+  },
+  {
+    "name": "Uzbekistan",
+    "name_translate": "Uzbequistão, Republica do",
+    "initials": "UZ",
+    "bacen": 8478
+  },
+  {
+    "name": "Vanuatu",
+    "name_translate": "Vanuatu",
+    "initials": "VU",
+    "bacen": 5517
+  },
+  {
+    "name": "Venezuela",
+    "name_translate": "Venezuela",
+    "initials": "VE",
+    "bacen": 8508
+  },
+  {
+    "name": "Viet Nam",
+    "name_translate": "Vietnã",
+    "initials": "VN",
+    "bacen": 8583
+  },
+  {
+    "name": "Virgin Islands (British)",
+    "name_translate": "Virgens, Ilhas (Britânicas)",
+    "initials": "VG",
+    "bacen": 8630
+  },
+  {
+    "name": "Virgin Islands (U.S.)",
+    "name_translate": "Virgens, Ilhas (E.U.A.)",
+    "initials": "VI",
+    "bacen": 8664
+  },
+  {
+    "name": "Wallis and Futuna Islands",
+    "name_translate": "Wallis e Futuna, Ilhas",
+    "initials": "WF",
+    "bacen": 8753
+  },
+  {
+    "name": "Western Sahara",
+    "name_translate": "Saara Ocidental",
+    "initials": "EH",
+    "bacen": 6858
+  },
+  {
+    "name": "Yemen",
+    "name_translate": "Iémen",
+    "initials": "YE",
+    "bacen": 3573
+  },
+  {
+    "name": "Yugoslavia",
+    "name_translate": "Iugoslávia, República Fed. da",
+    "initials": "YU",
+    "bacen": 3883
+  },
+  {
+    "name": "Zambia",
+    "name_translate": "Zâmbia",
+    "initials": "ZM",
+    "bacen": 8907
+  },
+  {
+    "name": "Zimbabwe",
+    "name_translate": "Zimbabue",
+    "initials": "ZW",
+    "bacen": 6653
+  },
+  {
+    "name": "Bailiwick of Guernsey",
+    "name_translate": "Guernsey, Ilha do Canal (Inclui Alderney e Sark)",
+    "initials": "GG",
+    "bacen": 1504
+  },
+  {
+    "name": "Bailiwick of Jersey",
+    "name_translate": "Jersey, Ilha do Canal",
+    "initials": "JE",
+    "bacen": 1508
+  },
+  {
+    "name": "Isle of Man",
+    "name_translate": "Man, Ilha de",
+    "initials": "IM",
+    "bacen": 3595
+  },
+  {
+    "name": "Crna Gora (Montenegro)",
+    "name_translate": "Montenegro",
+    "initials": "ME",
+    "bacen": 4985
+  },
+  {
+    "name": "SÉRVIA",
+    "name_translate": "Republika Srbija",
+    "initials": "RS",
+    "bacen": 7370
+  },
+  {
+    "name": "Republic of South Sudan",
+    "name_translate": "Sudao do Sul",
+    "initials": "SS",
+    "bacen": 7600
+  },
+  {
+    "name": "Zona del Canal de Panamá",
+    "name_translate": "Zona do Canal do Panamá",
+    "initials": null,
+    "bacen": 8958
+  },
+  {
+    "name": "Dawlat Filasṭīn",
+    "name_translate": "Palestina",
+    "initials": "PS",
+    "bacen": 5780
+  },
+  {
+    "name": "Åland Islands",
+    "name_translate": "Aland, Ilhas",
+    "initials": "AX",
+    "bacen": 153
+  },
+  {
+    "name": "Saint Barthélemy",
+    "name_translate": "Coletividade de São Bartolomeu",
+    "initials": "BL",
+    "bacen": 3598
+  },
+  {
+    "name": "Curaçao",
+    "name_translate": "Curaçao",
+    "initials": "CW",
+    "bacen": 200
+  },
+  {
+    "name": "Saint Martin",
+    "name_translate": "São Martinho, Ilha de (Parte Francesa)",
+    "initials": "SM",
+    "bacen": 6980
+  },
+  {
+    "name": "Bonaire",
+    "name_translate": "Bonaire",
+    "initials": "AN",
+    "bacen": 990
+  },
+  {
+    "name": "Antartica",
+    "name_translate": "Antartica",
+    "initials": "AQ",
+    "bacen": 420
+  },
+  {
+    "name": "Heard Island and McDonald Islands",
+    "name_translate": "Ilha Herad e Ilhas Macdonald",
+    "initials": "AU",
+    "bacen": 3433
+  },
+  {
+    "name": "Saint-Barthélemy",
+    "name_translate": "São Bartolomeu",
+    "initials": "FR",
+    "bacen": 6939
+  },
+  {
+    "name": "Saint Martin",
+    "name_translate": "São Martinho, Ilha de (Parte Holandesa)",
+    "initials": "SM",
+    "bacen": 6998
+  },
+  {
+    "name": "Terres Australes et Antarctiques Françaises",
+    "name_translate": "Terras Austrais e Antárcticas Francesas",
+    "initials": "TF",
+    "bacen": 7811
+  }
+]

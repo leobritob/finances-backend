@@ -1,5 +1,6 @@
 'use strict';
 
+/** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model');
 const UserFilter = use('App/ModelFilters/UserFilter');
 
@@ -36,6 +37,37 @@ class User extends Model {
 
   companies() {
     return this.belongsToMany('CompanyModel', 'user_id', 'company_id', 'id', 'id').pivotModel('CompaniesUserModel');
+  }
+
+  /**
+   * Find all users
+   * @param {object} ctx
+   * @param {number} ctx.page
+   * @param {number} ctx.perPage
+   * @param {string} ctx.search
+   * @returns {QueryBuilder}
+   */
+  static findAll({ page, perPage, search }) {
+    const query = this.query();
+
+    if (search) {
+      query.whereRaw(
+        `(
+          LOWER(users.first_name) LIKE :search
+          OR LOWER(users.last_name) LIKE :search
+          OR LOWER(users.email) LIKE :search
+        )`,
+        { search: `%${search.toLowerCase()}%` }
+      );
+    }
+
+    query.orderBy('id', 'asc');
+
+    if (!perPage) {
+      return query.fetch();
+    }
+
+    return query.paginate(page, perPage);
   }
 }
 

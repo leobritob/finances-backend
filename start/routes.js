@@ -92,4 +92,17 @@ Route.group(function() {
   Route.get('investments-types/:id', 'Api/V1/InvestmentsTypeController.show').middleware(['auth']);
   Route.put('investments-types/:id', 'Api/V1/InvestmentsTypeController.update').middleware(['auth']);
   Route.delete('investments-types/:id', 'Api/V1/InvestmentsTypeController.destroy').middleware(['auth']);
+
+  // Countries
+  Route.get('countries', 'Api/V1/CountryController.index').middleware(['auth']);
+  Route.post('countries', 'Api/V1/CountryController.store').middleware(['auth']);
+  Route.get('countries/:id', 'Api/V1/CountryController.show').middleware(['auth']);
+  Route.put('countries/:id', 'Api/V1/CountryController.update').middleware(['auth']);
+  Route.delete('countries/:id', 'Api/V1/CountryController.destroy').middleware(['auth']);
+
+  Route.get('customers', 'Api/V1/CustomerController.index').middleware(['auth']);
+  Route.post('companies/:company_id/customers', 'Api/V1/CustomerController.store').middleware(['auth']);
+  Route.get('customers/:id', 'Api/V1/CustomerController.show').middleware(['auth']);
+  Route.put('customers/:id', 'Api/V1/CustomerController.update').middleware(['auth']);
+  Route.delete('customers/:id', 'Api/V1/CustomerController.destroy').middleware(['auth']);
 }).prefix('api/v1');

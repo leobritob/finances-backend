@@ -1,22 +1,22 @@
-version: '3.3'
+version: '3.7'
 
 services:
   finances_database:
-    image: postgres:11-alpine
+    image: postgres:alpine
     container_name: finances_database
     environment:
-      - POSTGRES_USER=finances_root
-      - POSTGRES_PASSWORD=123456789
-      - POSTGRES_DB=finances
+      - POSTGRES_MULTIPLE_DATABASES=finances,finances_test
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
     volumes:
-      - finances_database:/var/lib/postgresql/data
+        - ./docker/database:/docker-entrypoint-initdb.d
     ports:
       - 5432:5432
     networks:
       - finances_network
 
   finances_backend:
-    build: .
+    build: ./docker/backend
     container_name: finances_backend
     environment:
       - NODE_ENV=development
@@ -44,7 +44,3 @@ services:
 networks:
   finances_network:
     driver: bridge
-
-volumes:
-  finances_database:
-    driver: local

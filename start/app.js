@@ -20,7 +20,8 @@ const providers = [
   '@adonisjs/validator/providers/ValidatorProvider',
   '@adonisjs/drive/providers/DriveProvider',
   'adonis-lucid-filter/providers/LucidFilterProvider',
-  '@adonisjs/mail/providers/MailProvider'
+  '@adonisjs/mail/providers/MailProvider',
+  '@adonisjs/vow/providers/VowProvider'
 ];
 
 /*
@@ -62,7 +63,12 @@ const aliases = {
   InvestmentModel: 'App/Models/Investment',
   InvestmentsTypeModel: 'App/Models/InvestmentsType',
   CompanyModel: 'App/Models/Company',
-  CompaniesUserModel: 'App/Models/CompaniesUser'
+  CompaniesUserModel: 'App/Models/CompaniesUser',
+  CountryModel: 'App/Models/Country',
+  StateModel: 'App/Models/State',
+  CityModel: 'App/Models/City',
+  CustomerModel: 'App/Models/Customer',
+  CompaniesCustomerModel: 'App/Models/CompaniesCustomer',
 };
 
 /*
