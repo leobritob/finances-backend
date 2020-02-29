@@ -49,14 +49,25 @@ DB_DATABASE=
 ```sh
 docker-compose up -d finances_database
 ```
+6. Run migrations
 
-6. Run server
+```sh
+yarn adonis migration:run
+```
+
+7. Run seeds
+
+```sh
+yarn adonis seed
+```
+
+8. Run server
 
 ```sh
 yarn dev
 ```
 
-7. Ready! Now, you can access the project's API.
+9. Ready! Now, you can access the project's API.
 
 ```ssh
 curl 'http://localhost:3333/' -H 'accept: application/json'
